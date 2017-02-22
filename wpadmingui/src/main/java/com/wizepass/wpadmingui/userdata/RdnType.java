@@ -1,10 +1,10 @@
-package com.mobilityguard.wizepass.wpadmingui.userdata;
+package com.wizepass.wpadmingui.userdata;
 
 public enum RdnType {
-
+	ROOT(RdnTypeParserRoot.class),
     DC(RdnTypeParserDC.class),
     OU(RdnTyperParserOu.class),
-    CN(RdnTypePaserCn.class);
+    CN(RdnTypeParserCn.class);
 
     private Class<RdnTypeParser> rndTypeClass;
     

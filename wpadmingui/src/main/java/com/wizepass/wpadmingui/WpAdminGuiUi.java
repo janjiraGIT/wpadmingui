@@ -1,7 +1,4 @@
-package com.mobilityguard.wizepass.wpadmingui;
-
-import com.mobilityguard.wizepass.wpadmingui.userdata.RdnTypeParser;
-import com.mobilityguard.wizepass.wpadmingui.userdata.RdnTypeParserDC;
+package com.wizepass.wpadmingui;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -14,6 +11,9 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.wizepass.wpadmingui.userdata.RdnTypeParser;
+import com.wizepass.wpadmingui.userdata.RdnTypeParserDC;
+import com.wizepass.wpadmingui.userdata.RdnTypeParserRoot;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -29,15 +29,12 @@ public class WpAdminGuiUi extends UI {
     final VerticalLayout layout = new VerticalLayout();
     final Button buttonSearch = new Button();
     final Button buttonCreateRegToken = new Button("Create Registation Token");
-    final Button buttonClearCheckBox = new Button("Clear Check Box");
-    final TextField textfield = new TextField();
-   
-
+ 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
 
         final TreeTable treeTable = createTreeTable();
-        layout.addComponents( buttonSearch, treeTable, textfield, buttonCreateRegToken,buttonClearCheckBox);
+        layout.addComponents( buttonSearch, treeTable,  buttonCreateRegToken);
         layout.setMargin(true);
         layout.setSpacing(true);
         setContent(layout);
@@ -54,16 +51,17 @@ public class WpAdminGuiUi extends UI {
         treeTable.setWidth("70%");
         treeTable.setColumnExpandRatio((Object) "LDAP Tree", 1.0f);
 
-        // Populate tree from test data
-        final RdnTypeParser parser = new RdnTypeParserDC();
+        final RdnTypeParser parser = new RdnTypeParserRoot();
+        /**
         try {
 			JSONObject jsonO = parser.readURL();
 			System.out.println(jsonO);
 		} catch (IOException | ParseException e1) {
 			e1.printStackTrace();
-		}
+		}**/
         try {
             final JSONObject jsonObj = parser.loadLdapData();
+            // try to do process Json's parent and children  by giving jsonObject from file , treetable and start row -1 
             parser.parse(jsonObj, treeTable, -1);
         } catch (Exception e) {
             System.err.println("Unexpected exception: " + e);

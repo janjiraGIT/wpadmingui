@@ -1,4 +1,4 @@
-package com.mobilityguard.wizepass.wpadmingui.userdata;
+package com.wizepass.wpadmingui.userdata;
 
 import org.json.simple.JSONObject;
 
