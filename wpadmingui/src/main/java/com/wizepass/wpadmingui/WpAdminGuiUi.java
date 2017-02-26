@@ -7,10 +7,12 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.wizepass.wpadmingui.userdata.HttpClientRequest;
 import com.wizepass.wpadmingui.userdata.RdnTypeParser;
 import com.wizepass.wpadmingui.userdata.RdnTypeParserDC;
 import com.wizepass.wpadmingui.userdata.RdnTypeParserRoot;
@@ -28,16 +30,34 @@ import javax.servlet.annotation.WebServlet;
 public class WpAdminGuiUi extends UI {
     final VerticalLayout layout = new VerticalLayout();
     final Button buttonSearch = new Button();
-    final Button buttonCreateRegToken = new Button("Create Registation Token");
+   final Button buttonCreateRegToken = new Button("Create Registation Token");
  
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
 
         final TreeTable treeTable = createTreeTable();
-        layout.addComponents( buttonSearch, treeTable,  buttonCreateRegToken);
+        final TextField textFieldSearch = searchView();
+        final Label showData = showDataFromSearch(textFieldSearch);
+        buttonCreateRegToken.setEnabled(false);
+        layout.addComponents( treeTable, buttonCreateRegToken, textFieldSearch, showData);
         layout.setMargin(true);
         layout.setSpacing(true);
         setContent(layout);
+    }
+    
+    private TextField searchView() {
+        final TextField textFieldSearch = new TextField("Search :");
+        textFieldSearch.setWidth("30%");
+        textFieldSearch.getValue();
+        return textFieldSearch;
+    }
+
+    @SuppressWarnings("unused")
+    private Label showDataFromSearch( final TextField text) {
+        final Label label = new Label();
+        TextField textfield = searchView();
+        label.setValue(textfield.getValue());
+        return label;
     }
 
     private TreeTable createTreeTable() {
@@ -52,21 +72,13 @@ public class WpAdminGuiUi extends UI {
         treeTable.setColumnExpandRatio((Object) "LDAP Tree", 1.0f);
 
         final RdnTypeParser parser = new RdnTypeParserRoot();
-        /**
         try {
-			JSONObject jsonO = parser.readURL();
-			System.out.println(jsonO);
-		} catch (IOException | ParseException e1) {
-			e1.printStackTrace();
-		}**/
-        try {
-            final JSONObject jsonObj = parser.loadLdapData();
+            final JSONObject jsonObj = HttpClientRequest.loadLdapData();
             // try to do process Json's parent and children  by giving jsonObject from file , treetable and start row -1 
             parser.parse(jsonObj, treeTable, -1);
         } catch (Exception e) {
             System.err.println("Unexpected exception: " + e);
         }
-
         return treeTable;
     }
 
