@@ -1,22 +1,11 @@
 package com.wizepass.wpadmingui.userdata;
 
+import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.TreeTable;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,35 +14,12 @@ public abstract class RdnTypeParser {
     private static final String RDN_TYPE = "rdn_type";
     private static final String RDN_VALUE = "rdn_value";
     private static final String CHILDREN = "children";
-   
 
     public abstract void parseNodeData(final JSONObject jsonObj, final java.util.List<Object> itemList);
 
     // counter for current itemId to add to TreeList
     private static int currentItemId = 0;
-    /**
-     * Get the UserData API 
-     * @return JSONObject
-     */
-    public JSONObject loadLdapData() throws IOException, ParseException {
-    	// http://10.104.14.7:8888/UserDbApi1/rest/users
-    	final Reader reader = new FileReader("./test3.json");
-    	final JSONParser jsonParser = new JSONParser();
-    	final JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-		return jsonObject;  	
-    }
-/**
- * This method will not work because can't connect to rest api 
- */
-//    public JSONObject loadLdapData() throws IOException, ParseException {
-//    	// http://10.104.14.7:8888/UserDbApi1/rest/users
-//    	final String apiURL = ("https://httpbin.org/get");
-//    	final URL url = new URL(apiURL);
-//    	final BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
-//    	final JSONParser jsonParser = new JSONParser();
-//    	final JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-//		return jsonObject;  	
-//    }
+    
 
     /**
      * Parses the User data tree structure.
@@ -99,10 +65,11 @@ public abstract class RdnTypeParser {
                     final List<CheckBox> childBoxes = parse(child, treeTable, thisItemId);
                     childrenBoxes.addAll(childBoxes);
                 }
-
+                final Button testButton = new Button("test");
                 checkBox.addValueChangeListener(e -> {
                     for (CheckBox child : childrenBoxes) {
                         child.setValue(checkBox.getValue());
+                        testButton.setEnabled(true);             
                     }
                 });
             }
