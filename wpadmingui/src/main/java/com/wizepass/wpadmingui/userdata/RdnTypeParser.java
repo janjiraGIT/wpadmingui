@@ -36,8 +36,10 @@ public abstract class RdnTypeParser {
             // change to Uppercase because need to mach with Enum class
             final RdnType nodeType = RdnType.valueOf(nodeTypeStr.toUpperCase());
             final RdnTypeParser nodeParser = nodeType.getParser();
+            
             // create the TreeTable checkbox from RDN_VALUE
             final String nodeTypeValue = (String) jsonObj.get(RDN_VALUE);
+            
             final CheckBox checkBox = new CheckBox(nodeTypeValue);
             // Every node have difference item and need to add checkBox in list 
             itemList.add(checkBox);         
