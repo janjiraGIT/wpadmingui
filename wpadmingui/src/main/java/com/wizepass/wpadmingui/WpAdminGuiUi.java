@@ -1,34 +1,26 @@
 package com.wizepass.wpadmingui;
 
 import com.vaadin.annotations.Theme;
+import com.vaadin.data.Item;
 import com.vaadin.data.Property;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.server.FontAwesome;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.wizepass.wpadmingui.userdata.HttpClientRequest;
-import com.wizepass.wpadmingui.userdata.RdnTypeParser;
-import com.wizepass.wpadmingui.userdata.RdnTypeParserDC;
-import com.wizepass.wpadmingui.userdata.RdnTypeParserRoot;
+import com.wizepass.wpadmingui.userdata.TreeTableFactory;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.ParseException;
-
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,16 +31,30 @@ public class WpAdminGuiUi extends UI {
     final VerticalLayout layout = new VerticalLayout();
     final Button buttonSearch = new Button();
     final Button buttonCreateRegToken = new Button("Create Registation Token");
+    final TextField textfield = new TextField();
+    final JSONObject jsonObj = new com.wizepass.wpadmingui.userdata.HttpClientRequest().loadLdapData();
     private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
-    final JSONObject jsonObj = HttpClientRequest.loadLdapData();
  
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
-
-        final TreeTable treeTable = createTreeTable(jsonObj);
-        final TextField textFieldSearch = searchView(jsonObj);
+        final TextField tf = searchView(jsonObj);
         buttonCreateRegToken.setEnabled(false);
-        layout.addComponents( treeTable, buttonCreateRegToken, textFieldSearch);
+
+        final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
+
+        buttonCreateRegToken.setEnabled(true);
+        buttonCreateRegToken.addClickListener(e -> {
+            final Set<Integer> keySet = treeTableFactory.getPersons().keySet();
+            System.err.println("Tree:");
+            for (int i : keySet) {
+                final Item item = treeTableFactory.getTreeTable().getItem(i);
+                CheckBox box = (CheckBox) item.getItemProperty("LDAP Tree").getValue();
+                String givenName = (String) item.getItemProperty("Given Name").getValue();
+                System.err.print(box.getValue());
+                System.err.println(" " + givenName);
+            }
+        });
+        layout.addComponents(treeTableFactory.getTreeTable(), buttonCreateRegToken, tf);
         layout.setMargin(true);
         layout.setSpacing(true);
         setContent(layout);
@@ -98,29 +104,19 @@ public class WpAdminGuiUi extends UI {
         }
         return listObj;
     }
-
-
-    private TreeTable createTreeTable(final JSONObject jsonObj) {
-    	
-        final TreeTable treeTable = new TreeTable();
-        logger.entering(getClass().getSimpleName(), "createTreeTable");
-        treeTable.addContainerProperty("LDAP Tree", CheckBox.class, "");
-        treeTable.addContainerProperty("Search Base", String.class, null);
-        treeTable.addContainerProperty("Given Name", String.class, null);
-        treeTable.addContainerProperty("Surname", String.class, null);
-        treeTable.setWidth("70%");
-        treeTable.setColumnExpandRatio((Object) "LDAP Tree", 1.0f);
-        // start with Root first ( Root is override from RdnTypeParser ) 
-        final RdnTypeParser rdnTypeParser = new RdnTypeParserRoot();
+    private TreeTableFactory createTreeTable(final JSONObject jsonObj) {
+        TreeTableFactory treeTableFactory = null;
         try {
-            rdnTypeParser.parse(jsonObj, treeTable, -1);
+            treeTableFactory = new TreeTableFactory();
+            treeTableFactory.createTreeTable(jsonObj);
+            treeTableFactory.getTreeTable().setWidth("75%");
+            treeTableFactory.getTreeTable().setColumnExpandRatio((Object) "LDAP Tree", 1.0f);
         } catch (Exception e) {
-        	 logger.log(Level.WARNING, " Http response error ", e.getMessage());
+            logger.log(Level.WARNING, " Http response error ", e.getMessage());
         }
-        // create treeTable
-        return treeTable;
+        return treeTableFactory;
     }
-
+    
     @WebServlet(urlPatterns = "/*", name = "WpAdminGuiUiServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = WpAdminGuiUi.class, productionMode = false)
     public static class WpAdminGuiUiServlet extends VaadinServlet {
