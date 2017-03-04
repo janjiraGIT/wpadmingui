@@ -11,11 +11,16 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
+import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.Window;
 import com.vaadin.ui.VerticalLayout;
 import com.wizepass.wpadmingui.userdata.HttpClientRequest;
 import com.wizepass.wpadmingui.userdata.TreeTableFactory;
+import com.wizepass.wpadmingui.userdata.RegistationToken;
+
 
 import org.json.simple.JSONObject;
 import java.util.LinkedList;
@@ -25,39 +30,52 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.annotation.WebServlet;
-
 @Theme("WpAdminGuiTheme")
 public class WpAdminGuiUi extends UI {
-    final VerticalLayout layout = new VerticalLayout();
-    final Button buttonSearch = new Button();
-    final Button buttonCreateRegToken = new Button("Create Registation Token");
-    final TextField textfield = new TextField();
-    final JSONObject jsonObj = new com.wizepass.wpadmingui.userdata.HttpClientRequest().loadLdapData();
-    private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
+	  	final TabSheet tabsheet = new TabSheet();
+	    final VerticalLayout layoutMain = new VerticalLayout();
+	    final VerticalLayout layoutTab1 = new VerticalLayout();
+	    final Button buttonSearch = new Button();
+	    final Button buttonCreateRegToken = new Button("Create Issue Registation Tokens");
+	    final TextField textfield = new TextField();
+	    final JSONObject jsonObj = new HttpClientRequest().loadLdapData();
+	    final RegistationToken registationToken = new RegistationToken();
+	    final RegistationTokenWindow issueRegisToken = new RegistationTokenWindow();
+	    private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
  
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
+    	   createUserDbApiTab();
+           registationToken.createRegistationTokenTab(tabsheet);
+           layoutMain.addComponent(tabsheet);
+           layoutMain.setMargin(true);
+           layoutMain.setSpacing(true);
+           setContent(layoutMain);
+       
+    }
+    private void createUserDbApiTab() {
         final TextField tf = searchView(jsonObj);
         buttonCreateRegToken.setEnabled(false);
-
         final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
-
         buttonCreateRegToken.setEnabled(true);
         buttonCreateRegToken.addClickListener(e -> {
             final Set<Integer> keySet = treeTableFactory.getPersons().keySet();
+            Window issueRgTokens = ((RegistationTokenWindow) issueRegisToken).createWindow();
+            addWindow(issueRgTokens);
             System.err.println("Tree:");
             for (int i : keySet) {
                 final Item item = treeTableFactory.getTreeTable().getItem(i);
-                CheckBox box = (CheckBox) item.getItemProperty("LDAP Tree").getValue();
                 String givenName = (String) item.getItemProperty("Given Name").getValue();
-                System.err.print(box.getValue());
-                System.err.println(" " + givenName);
+                CheckBox box = (CheckBox) item.getItemProperty("LDAP Tree").getValue();
+                if (box.getValue()) {
+                    System.err.println("Issue Wizepass for person: " + givenName );
+                }
             }
         });
-        layout.addComponents(treeTableFactory.getTreeTable(), buttonCreateRegToken, tf);
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        setContent(layout);
+        layoutTab1.addComponents(treeTableFactory.getTreeTable(), buttonCreateRegToken, tf);
+        layoutTab1.setMargin(true);
+        layoutTab1.setSpacing(true);
+        tabsheet.addTab(layoutTab1, "UserDbApi");
     }
     
     private TextField searchView(final JSONObject jsonObj) {
