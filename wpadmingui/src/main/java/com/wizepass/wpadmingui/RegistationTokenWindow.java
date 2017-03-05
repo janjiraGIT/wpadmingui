@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class RegistationTokenWindow {
 	final Label label = new Label("Issue Registation Tokens");
+	final Label labelUserSelect = new Label("User selected :" );
     final TextField textField = new TextField("Description : ");
     final Window window = new Window();
     final VerticalLayout layout = new VerticalLayout();
@@ -18,18 +19,19 @@ public class RegistationTokenWindow {
     List<String> profileList = new ArrayList<>();
     final ComboBox selectTime = new ComboBox("Valid Time :");
     final ComboBox selectProfile = new ComboBox("Cert profile :");
-
+   // WpAdminGuiUi wpadminguiui = new WpAdminGuiUi();
     /**
-     * crate window.
+     * crate a new Window efter click create register token button.
      **/
-    public Window createWindow() {
+    public Window createWindow(int countSelect) {
         layout.setMargin(true);
         layout.setSpacing(true);
         timeList = createTimeList();
         profileList = createProfile();
         selectTime.addItems(timeList);
         selectProfile.addItems(profileList);
-        layout.addComponents(label,textField,selectTime,selectProfile);
+        labelUserSelect.setValue("User Selected : " + countSelect);
+        layout.addComponents(label,textField,selectTime,selectProfile,labelUserSelect);
         window.setContent(layout);
         window.center();
         window.setHeight("500px");
@@ -37,7 +39,6 @@ public class RegistationTokenWindow {
         window.setPosition(150, 70);
         return window;
     }
-
     private List<String> createTimeList() {
         timeList.add("10 Minutes");
         timeList.add("1 hour");
@@ -45,7 +46,6 @@ public class RegistationTokenWindow {
         timeList.add("1 week");
         return timeList;
     }
-
     private List<String> createProfile() {
         profileList.add("profile1");
         profileList.add("profile2");
@@ -53,4 +53,5 @@ public class RegistationTokenWindow {
         profileList.add("profile4");
         return profileList;
     }
+
 }

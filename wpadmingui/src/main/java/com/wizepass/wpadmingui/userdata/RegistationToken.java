@@ -7,10 +7,8 @@ import com.vaadin.ui.TreeTable;
 import com.vaadin.ui.VerticalLayout;
 
 public class RegistationToken {
+	
 
-    /**
-     * Registation Token.
-     **/
     public void createRegistationTokenTab(final TabSheet tabsheet) {
         final VerticalLayout layoutTab2 = new VerticalLayout();
         final HorizontalLayout layoutForButton = new HorizontalLayout();

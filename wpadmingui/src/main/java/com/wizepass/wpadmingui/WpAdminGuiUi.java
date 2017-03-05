@@ -42,6 +42,9 @@ public class WpAdminGuiUi extends UI {
 	    final RegistationToken registationToken = new RegistationToken();
 	    final RegistationTokenWindow issueRegisToken = new RegistationTokenWindow();
 	    private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
+	    int countName ;
+        int countNameSelect = 0;
+
  
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -53,29 +56,37 @@ public class WpAdminGuiUi extends UI {
            setContent(layoutMain);
        
     }
-    private void createUserDbApiTab() {
+    public void createUserDbApiTab() {
         final TextField tf = searchView(jsonObj);
+
         buttonCreateRegToken.setEnabled(false);
         final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
         buttonCreateRegToken.setEnabled(true);
         buttonCreateRegToken.addClickListener(e -> {
             final Set<Integer> keySet = treeTableFactory.getPersons().keySet();
-            Window issueRgTokens = ((RegistationTokenWindow) issueRegisToken).createWindow();
-            addWindow(issueRgTokens);
             System.err.println("Tree:");
+          
             for (int i : keySet) {
                 final Item item = treeTableFactory.getTreeTable().getItem(i);
-                String givenName = (String) item.getItemProperty("Given Name").getValue();
+                String givenName = (String) item.getItemProperty("Given Name").getValue();  
+                
                 CheckBox box = (CheckBox) item.getItemProperty("LDAP Tree").getValue();
                 if (box.getValue()) {
-                    System.err.println("Issue Wizepass for person: " + givenName );
-                }
+                    System.err.println("Issue Wizepass for person: " + givenName  );
+                    countName ++;
+                }             
             }
-        });
+            countNameSelect = countName;     
+            RegistationTokenWindow rgtWindow = new RegistationTokenWindow();
+            Window issueRegTokens = rgtWindow.createWindow(countNameSelect);
+            addWindow(issueRegTokens);        
+        });    
+
         layoutTab1.addComponents(treeTableFactory.getTreeTable(), buttonCreateRegToken, tf);
         layoutTab1.setMargin(true);
         layoutTab1.setSpacing(true);
         tabsheet.addTab(layoutTab1, "UserDbApi");
+		
     }
     
     private TextField searchView(final JSONObject jsonObj) {

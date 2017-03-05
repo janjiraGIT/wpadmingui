@@ -33,7 +33,6 @@ public class TreeTableFactory {
     public void createTreeTable(final JSONObject jsonObj) throws InstantiationException, IllegalAccessException {
         final TreeTable tmpTreeTable = new TreeTable();
         tmpTreeTable.addContainerProperty("LDAP Tree", CheckBox.class, "");
-        //tmpTreeTable.addContainerProperty("Search Base", String.class, null);
         tmpTreeTable.addContainerProperty("Given Name", String.class, null);
         tmpTreeTable.addContainerProperty("Surname", String.class, null);
 
