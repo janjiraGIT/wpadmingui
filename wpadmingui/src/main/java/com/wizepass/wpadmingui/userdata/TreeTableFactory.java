@@ -56,7 +56,8 @@ public class TreeTableFactory {
 
         // add Items to Treeview
         Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
-        tmpTreeTable.addItem(rootItems, rootItemId);
+        // ttable.addItem(new Object[]{"Root"}, 0); // only one obj
+        tmpTreeTable.addItem(rootItems, rootItemId); // {Checkbox,null,null }, 0 
 
         // parse children
         final List<CheckBox> rootChildrenCheckBoxes =
@@ -143,6 +144,7 @@ public class TreeTableFactory {
 
         // Add checkbox with value
         if (nodeAttributes.containsKey(RDN_VALUE)) {
+        	// CheckBox checkBox = new CheckBox("Check1");
             final CheckBox checkBox = new CheckBox(nodeAttributes.get(RDN_VALUE));
             itemList.add(checkBox);
         } else {

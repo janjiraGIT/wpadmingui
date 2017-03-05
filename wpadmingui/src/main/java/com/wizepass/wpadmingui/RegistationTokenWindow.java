@@ -14,8 +14,8 @@ public class RegistationTokenWindow {
     final TextField textField = new TextField("Description : ");
     final Window window = new Window();
     final VerticalLayout layout = new VerticalLayout();
-    final List<String> timeList = new ArrayList<>();
-    final List<String> profileList = new ArrayList<>();
+    List<String> timeList = new ArrayList<>();
+    List<String> profileList = new ArrayList<>();
     final ComboBox selectTime = new ComboBox("Valid Time :");
     final ComboBox selectProfile = new ComboBox("Cert profile :");
 
@@ -25,10 +25,10 @@ public class RegistationTokenWindow {
     public Window createWindow() {
         layout.setMargin(true);
         layout.setSpacing(true);
-        final List<String> timeList = createTimeList();
-        final List<String> profileList = createProfile();
+        timeList = createTimeList();
+        profileList = createProfile();
         selectTime.addItems(timeList);
-        selectProfile.addItem(profileList);
+        selectProfile.addItems(profileList);
         layout.addComponents(label,textField,selectTime,selectProfile);
         window.setContent(layout);
         window.center();
@@ -47,10 +47,10 @@ public class RegistationTokenWindow {
     }
 
     private List<String> createProfile() {
-        profileList.add("profile 1");
-        profileList.add("profile 2");
-        profileList.add("profile 3");
-        profileList.add("profile 4");
+        profileList.add("profile1");
+        profileList.add("profile2");
+        profileList.add("profile3");
+        profileList.add("profile4");
         return profileList;
     }
 }
