@@ -1,0 +1,3147 @@
+{
+  "rdn_type": "root",
+  "rdn_value": "root",
+  "children": [
+    {
+      "rdn_type": "DC",
+      "rdn_value": "local",
+      "children": [
+        {
+          "rdn_type": "DC",
+          "rdn_value": "labb3",
+          "children": [
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Users",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Administrator",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Administrator"
+                    ],
+                    "distinguishedName": [
+                      "CN=Administrator,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Guest",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Guest"
+                    ],
+                    "distinguishedName": [
+                      "CN=Guest,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "krbtgt",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "krbtgt"
+                    ],
+                    "distinguishedName": [
+                      "CN=krbtgt,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Domain Computers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Domain Computers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Domain Computers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Domain Controllers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Domain Controllers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Domain Controllers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Schema Admins",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Schema Admins"
+                    ],
+                    "distinguishedName": [
+                      "CN=Schema Admins,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Enterprise Admins",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Enterprise Admins"
+                    ],
+                    "distinguishedName": [
+                      "CN=Enterprise Admins,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Cert Publishers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Cert Publishers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Cert Publishers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Domain Admins",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Domain Admins"
+                    ],
+                    "distinguishedName": [
+                      "CN=Domain Admins,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Domain Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Domain Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Domain Users,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Domain Guests",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Domain Guests"
+                    ],
+                    "distinguishedName": [
+                      "CN=Domain Guests,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Group Policy Creator Owners",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Group Policy Creator Owners"
+                    ],
+                    "distinguishedName": [
+                      "CN=Group Policy Creator Owners,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "RAS and IAS Servers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "RAS and IAS Servers"
+                    ],
+                    "distinguishedName": [
+                      "CN=RAS and IAS Servers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Allowed RODC Password Replication Group",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Allowed RODC Password Replication Group"
+                    ],
+                    "distinguishedName": [
+                      "CN=Allowed RODC Password Replication Group,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Denied RODC Password Replication Group",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Denied RODC Password Replication Group"
+                    ],
+                    "distinguishedName": [
+                      "CN=Denied RODC Password Replication Group,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Read-only Domain Controllers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Read-only Domain Controllers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Read-only Domain Controllers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Enterprise Read-only Domain Controllers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Enterprise Read-only Domain Controllers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Enterprise Read-only Domain Controllers,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "DnsAdmins",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "DnsAdmins"
+                    ],
+                    "distinguishedName": [
+                      "CN=DnsAdmins,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "DnsUpdateProxy",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "DnsUpdateProxy"
+                    ],
+                    "distinguishedName": [
+                      "CN=DnsUpdateProxy,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "administrator2",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "administrator2"
+                    ],
+                    "givenName": [
+                      "administrator2"
+                    ],
+                    "distinguishedName": [
+                      "CN=administrator2,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "SubGroupToOneHour",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "SubGroupToOneHour"
+                    ],
+                    "distinguishedName": [
+                      "CN=SubGroupToOneHour,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "myPwdSettings",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=myPwdSettings,CN=Users,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Users,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Computers",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "WIN7-64",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "WIN7-64$"
+                    ],
+                    "distinguishedName": [
+                      "CN=WIN7-64,CN=Computers,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Computers,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "OU",
+              "rdn_value": "Domain Controllers",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "DCLABB3",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "RID Set",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=RID Set,CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "NTFRS Subscriptions",
+                      "children": [
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "Domain System Volume (SYSVOL share)",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=Domain System Volume (SYSVOL share),CN=NTFRS Subscriptions,CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=NTFRS Subscriptions,CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "Microsoft Hyper-V",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=Microsoft Hyper-V,CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "sAMAccountName": [
+                      "DCLABB3$"
+                    ],
+                    "distinguishedName": [
+                      "CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "OU=Domain Controllers,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "System",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "WinsockServices",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=WinsockServices,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "RpcServices",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=RpcServices,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "FileLinks",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "VolumeTable",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=VolumeTable,CN=FileLinks,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ObjectMoveTable",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ObjectMoveTable,CN=FileLinks,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=FileLinks,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Default Domain Policy",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "AppCategories",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=AppCategories,CN=Default Domain Policy,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Default Domain Policy,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Meetings",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Meetings,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Policies",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "{31B2F340-016D-11D2-945F-00C04FB984F9}",
+                      "children": [
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "User",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=User,CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "Machine",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=Machine,CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "{6AC1786C-016F-11D2-945F-00C04fB984F9}",
+                      "children": [
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "User",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=User,CN={6AC1786C-016F-11D2-945F-00C04fB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "Machine",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=Machine,CN={6AC1786C-016F-11D2-945F-00C04fB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN={6AC1786C-016F-11D2-945F-00C04fB984F9},CN=Policies,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Policies,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "RAS and IAS Servers Access Check",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=RAS and IAS Servers Access Check,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "File Replication Service",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "Domain System Volume (SYSVOL share)",
+                      "children": [
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "DCLABB3",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=DCLABB3,CN=Domain System Volume (SYSVOL share),CN=File Replication Service,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=Domain System Volume (SYSVOL share),CN=File Replication Service,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=File Replication Service,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Dfs-Configuration",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Dfs-Configuration,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "IP Security",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecPolicy{72385230-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecPolicy{72385230-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecISAKMPPolicy{72385231-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecISAKMPPolicy{72385231-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{72385232-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{72385232-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{59319BE2-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{59319BE2-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{594272E2-071D-11D3-AD22-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{594272E2-071D-11D3-AD22-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{72385233-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{72385233-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecFilter{7238523A-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecFilter{7238523A-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{59319BDF-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{59319BDF-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{7238523B-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{7238523B-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecFilter{72385235-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecFilter{72385235-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecPolicy{72385236-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecPolicy{72385236-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecISAKMPPolicy{72385237-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecISAKMPPolicy{72385237-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{59319C04-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{59319C04-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{59319C01-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{59319C01-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecPolicy{7238523C-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecPolicy{7238523C-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecISAKMPPolicy{7238523D-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecISAKMPPolicy{7238523D-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{7238523E-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{7238523E-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{59319BF3-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{59319BF3-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{594272FD-071D-11D3-AD22-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{594272FD-071D-11D3-AD22-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{7238523F-70FA-11D1-864C-14A300000000}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{7238523F-70FA-11D1-864C-14A300000000},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNegotiationPolicy{59319BF0-5EE3-11D2-ACE8-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNegotiationPolicy{59319BF0-5EE3-11D2-ACE8-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ipsecNFA{6A1F5C6F-72B7-11D2-ACF0-0060B0ECCA17}",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ipsecNFA{6A1F5C6F-72B7-11D2-ACF0-0060B0ECCA17},CN=IP Security,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=IP Security,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "AdminSDHolder",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=AdminSDHolder,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "ComPartitions",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=ComPartitions,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "ComPartitionSets",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=ComPartitionSets,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "WMIPolicy",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "PolicyTemplate",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=PolicyTemplate,CN=WMIPolicy,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "SOM",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=SOM,CN=WMIPolicy,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "PolicyType",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=PolicyType,CN=WMIPolicy,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "WMIGPO",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=WMIGPO,CN=WMIPolicy,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=WMIPolicy,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "DomainUpdates",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "Operations",
+                      "children": [
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "ab402345-d3c3-455d-9ff7-40268a1099b6",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=ab402345-d3c3-455d-9ff7-40268a1099b6,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "bab5f54d-06c8-48de-9b87-d78b796564e4",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=bab5f54d-06c8-48de-9b87-d78b796564e4,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "f3dd09dd-25e8-4f9c-85df-12d6d2f2f2f5",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=f3dd09dd-25e8-4f9c-85df-12d6d2f2f2f5,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "2416c60a-fe15-4d7a-a61e-dffd5df864d3",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=2416c60a-fe15-4d7a-a61e-dffd5df864d3,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "7868d4c8-ac41-4e05-b401-776280e8e9f1",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=7868d4c8-ac41-4e05-b401-776280e8e9f1,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "860c36ed-5241-4c62-a18b-cf6ff9994173",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=860c36ed-5241-4c62-a18b-cf6ff9994173,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "0e660ea3-8a5e-4495-9ad7-ca1bd4638f9e",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=0e660ea3-8a5e-4495-9ad7-ca1bd4638f9e,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "a86fe12a-0f62-4e2a-b271-d27f601f8182",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=a86fe12a-0f62-4e2a-b271-d27f601f8182,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "d85c0bfd-094f-4cad-a2b5-82ac9268475d",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=d85c0bfd-094f-4cad-a2b5-82ac9268475d,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6ada9ff7-c9df-45c1-908e-9fef2fab008a",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6ada9ff7-c9df-45c1-908e-9fef2fab008a,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "10b3ad2a-6883-4fa7-90fc-6377cbdc1b26",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=10b3ad2a-6883-4fa7-90fc-6377cbdc1b26,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "98de1d3e-6611-443b-8b4e-f4337f1ded0b",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=98de1d3e-6611-443b-8b4e-f4337f1ded0b,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "f607fd87-80cf-45e2-890b-6cf97ec0e284",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=f607fd87-80cf-45e2-890b-6cf97ec0e284,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "9cac1f66-2167-47ad-a472-2a13251310e4",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=9cac1f66-2167-47ad-a472-2a13251310e4,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6ff880d6-11e7-4ed1-a20f-aac45da48650",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6ff880d6-11e7-4ed1-a20f-aac45da48650,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "446f24ea-cfd5-4c52-8346-96e170bcb912",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=446f24ea-cfd5-4c52-8346-96e170bcb912,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "51cba88b-99cf-4e16-bef2-c427b38d0767",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=51cba88b-99cf-4e16-bef2-c427b38d0767,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "a3dac986-80e7-4e59-a059-54cb1ab43cb9",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=a3dac986-80e7-4e59-a059-54cb1ab43cb9,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "293f0798-ea5c-4455-9f5d-45f33a30703b",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=293f0798-ea5c-4455-9f5d-45f33a30703b,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "5c82b233-75fc-41b3-ac71-c69592e6bf15",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=5c82b233-75fc-41b3-ac71-c69592e6bf15,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "7ffef925-405b-440a-8d58-35e8cd6e98c3",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=7ffef925-405b-440a-8d58-35e8cd6e98c3,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "4dfbb973-8a62-4310-a90c-776e00f83222",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=4dfbb973-8a62-4310-a90c-776e00f83222,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "8437C3D8-7689-4200-BF38-79E4AC33DFA0",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=8437C3D8-7689-4200-BF38-79E4AC33DFA0,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "7cfb016c-4f87-4406-8166-bd9df943947f",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=7cfb016c-4f87-4406-8166-bd9df943947f,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "f7ed4553-d82b-49ef-a839-2f38a36bb069",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=f7ed4553-d82b-49ef-a839-2f38a36bb069,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "8ca38317-13a4-4bd4-806f-ebed6acb5d0c",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=8ca38317-13a4-4bd4-806f-ebed6acb5d0c,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "3c784009-1f57-4e2a-9b04-6915c9e71961",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=3c784009-1f57-4e2a-9b04-6915c9e71961,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5678-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5678-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5679-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5679-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567a-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567a-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567b-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567b-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567c-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567c-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567d-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567d-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567e-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567e-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd567f-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd567f-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5680-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5680-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5681-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5681-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5682-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5682-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5683-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5683-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5684-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5684-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5685-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5685-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5686-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5686-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5687-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5687-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5688-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5688-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd5689-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd5689-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd568a-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd568a-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd568b-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd568b-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd568c-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd568c-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6bcd568d-8314-11d6-977b-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6bcd568d-8314-11d6-977b-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "3051c66f-b332-4a73-9a20-2d6a7d6e6a1c",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=3051c66f-b332-4a73-9a20-2d6a7d6e6a1c,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "3e4f4182-ac5d-4378-b760-0eab2de593e2",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=3e4f4182-ac5d-4378-b760-0eab2de593e2,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "c4f17608-e611-11d6-9793-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=c4f17608-e611-11d6-9793-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "13d15cf0-e6c8-11d6-9793-00c04f613221",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=13d15cf0-e6c8-11d6-9793-00c04f613221,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "8ddf6913-1c7b-4c59-a5af-b9ca3b3d2c4c",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=8ddf6913-1c7b-4c59-a5af-b9ca3b3d2c4c,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "dda1d01d-4bd7-4c49-a184-46f9241b560e",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=dda1d01d-4bd7-4c49-a184-46f9241b560e,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "a1789bfb-e0a2-4739-8cc0-e77d892d080a",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=a1789bfb-e0a2-4739-8cc0-e77d892d080a,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "61b34cb0-55ee-4be9-b595-97810b92b017",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=61b34cb0-55ee-4be9-b595-97810b92b017,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "57428d75-bef7-43e1-938b-2e749f5a8d56",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=57428d75-bef7-43e1-938b-2e749f5a8d56,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "ebad865a-d649-416f-9922-456b53bbb5b8",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=ebad865a-d649-416f-9922-456b53bbb5b8,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "0b7fb422-3609-4587-8c2e-94b10f67d1bf",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=0b7fb422-3609-4587-8c2e-94b10f67d1bf,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "2951353e-d102-4ea5-906c-54247eeec741",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=2951353e-d102-4ea5-906c-54247eeec741,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "71482d49-8870-4cb3-a438-b6fc9ec35d70",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=71482d49-8870-4cb3-a438-b6fc9ec35d70,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "aed72870-bf16-4788-8ac7-22299c8207f1",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=aed72870-bf16-4788-8ac7-22299c8207f1,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "f58300d1-b71a-4DB6-88a1-a8b9538beaca",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=f58300d1-b71a-4DB6-88a1-a8b9538beaca,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "231fb90b-c92a-40c9-9379-bacfc313a3e3",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=231fb90b-c92a-40c9-9379-bacfc313a3e3,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "4aaabc3a-c416-4b9c-a6bb-4b453ab1c1f0",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=4aaabc3a-c416-4b9c-a6bb-4b453ab1c1f0,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "9738c400-7795-4d6e-b19d-c16cd6486166",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=9738c400-7795-4d6e-b19d-c16cd6486166,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "de10d491-909f-4fb0-9abb-4b7865c0fe80",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=de10d491-909f-4fb0-9abb-4b7865c0fe80,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "b96ed344-545a-4172-aa0c-68118202f125",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=b96ed344-545a-4172-aa0c-68118202f125,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "4c93ad42-178a-4275-8600-16811d28f3aa",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=4c93ad42-178a-4275-8600-16811d28f3aa,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "c88227bc-fcca-4b58-8d8a-cd3d64528a02",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=c88227bc-fcca-4b58-8d8a-cd3d64528a02,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "5e1574f6-55df-493e-a671-aaeffca6a100",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=5e1574f6-55df-493e-a671-aaeffca6a100,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "d262aae8-41f7-48ed-9f35-56bbb677573d",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=d262aae8-41f7-48ed-9f35-56bbb677573d,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "82112ba0-7e4c-4a44-89d9-d46c9612bf91",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=82112ba0-7e4c-4a44-89d9-d46c9612bf91,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "CN",
+                          "rdn_value": "6E157EDF-4E72-4052-A82A-EC3F91021A22",
+                          "attributes": {
+                            "distinguishedName": [
+                              "CN=6E157EDF-4E72-4052-A82A-EC3F91021A22,CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=Operations,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "Windows2003Update",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=Windows2003Update,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "ActiveDirectoryUpdate",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=ActiveDirectoryUpdate,CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=DomainUpdates,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Password Settings Container",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "OneHourPwdPolicy",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=OneHourPwdPolicy,CN=Password Settings Container,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "FifteenMinutePolicy",
+                      "attributes": {
+                        "distinguishedName": [
+                          "CN=FifteenMinutePolicy,CN=Password Settings Container,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Password Settings Container,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "PSPs",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=PSPs,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Server",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Server,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "RID Manager$",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=RID Manager$,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "MicrosoftDNS",
+                  "children": [
+                    {
+                      "rdn_type": "DC",
+                      "rdn_value": "RootDNSServers",
+                      "children": [
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "@",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=@,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "i.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=i.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "g.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=g.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "h.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=h.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "b.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=b.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "e.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=e.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "d.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=d.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "c.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=c.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "f.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=f.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        },
+                        {
+                          "rdn_type": "DC",
+                          "rdn_value": "a.root-servers.net",
+                          "attributes": {
+                            "distinguishedName": [
+                              "DC=a.root-servers.net,DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                            ]
+                          }
+                        }
+                      ],
+                      "attributes": {
+                        "distinguishedName": [
+                          "DC=RootDNSServers,CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=MicrosoftDNS,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "BCKUPKEY_acfb7194-c6b0-47ab-b4b5-4f9085e91ac9 Secret",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=BCKUPKEY_acfb7194-c6b0-47ab-b4b5-4f9085e91ac9 Secret,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "BCKUPKEY_P Secret",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=BCKUPKEY_P Secret,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "BCKUPKEY_259323b6-1833-4c94-b164-b2fc96941e91 Secret",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=BCKUPKEY_259323b6-1833-4c94-b164-b2fc96941e91 Secret,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "BCKUPKEY_PREFERRED Secret",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=BCKUPKEY_PREFERRED Secret,CN=System,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=System,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "LostAndFound",
+              "attributes": {
+                "distinguishedName": [
+                  "CN=LostAndFound,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Infrastructure",
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Infrastructure,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "ForeignSecurityPrincipals",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "S-1-5-4",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=S-1-5-4,CN=ForeignSecurityPrincipals,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "S-1-5-11",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=S-1-5-11,CN=ForeignSecurityPrincipals,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "S-1-5-17",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=S-1-5-17,CN=ForeignSecurityPrincipals,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "S-1-5-9",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=S-1-5-9,CN=ForeignSecurityPrincipals,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=ForeignSecurityPrincipals,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Program Data",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Microsoft",
+                  "attributes": {
+                    "distinguishedName": [
+                      "CN=Microsoft,CN=Program Data,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Program Data,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "NTDS Quotas",
+              "attributes": {
+                "distinguishedName": [
+                  "CN=NTDS Quotas,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Managed Service Accounts",
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Managed Service Accounts,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "CN",
+              "rdn_value": "Builtin",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Administrators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Administrators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Administrators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Users,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Guests",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Guests"
+                    ],
+                    "distinguishedName": [
+                      "CN=Guests,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Print Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Print Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Print Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Backup Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Backup Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Backup Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Replicator",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Replicator"
+                    ],
+                    "distinguishedName": [
+                      "CN=Replicator,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Remote Desktop Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Remote Desktop Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Remote Desktop Users,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Network Configuration Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Network Configuration Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Network Configuration Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Performance Monitor Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Performance Monitor Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Performance Monitor Users,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Performance Log Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Performance Log Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Performance Log Users,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Distributed COM Users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Distributed COM Users"
+                    ],
+                    "distinguishedName": [
+                      "CN=Distributed COM Users,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "IIS_IUSRS",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "IIS_IUSRS"
+                    ],
+                    "distinguishedName": [
+                      "CN=IIS_IUSRS,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Cryptographic Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Cryptographic Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Cryptographic Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Event Log Readers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Event Log Readers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Event Log Readers,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Certificate Service DCOM Access",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Certificate Service DCOM Access"
+                    ],
+                    "distinguishedName": [
+                      "CN=Certificate Service DCOM Access,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Server Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Server Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Server Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Account Operators",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Account Operators"
+                    ],
+                    "distinguishedName": [
+                      "CN=Account Operators,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Pre-Windows 2000 Compatible Access",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Pre-Windows 2000 Compatible Access"
+                    ],
+                    "distinguishedName": [
+                      "CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Incoming Forest Trust Builders",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Incoming Forest Trust Builders"
+                    ],
+                    "distinguishedName": [
+                      "CN=Incoming Forest Trust Builders,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Windows Authorization Access Group",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Windows Authorization Access Group"
+                    ],
+                    "distinguishedName": [
+                      "CN=Windows Authorization Access Group,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Terminal Server License Servers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Terminal Server License Servers"
+                    ],
+                    "distinguishedName": [
+                      "CN=Terminal Server License Servers,CN=Builtin,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "CN=Builtin,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "OU",
+              "rdn_value": "mgusers",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Per Sonden",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso"
+                    ],
+                    "givenName": [
+                      "Per"
+                    ],
+                    "distinguishedName": [
+                      "CN=Per Sonden,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Sonden"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Revokey Certsson",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "revokey"
+                    ],
+                    "givenName": [
+                      "Revokey"
+                    ],
+                    "distinguishedName": [
+                      "CN=Revokey Certsson,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Certsson"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "nogroups",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "nogroups"
+                    ],
+                    "givenName": [
+                      "nogroups"
+                    ],
+                    "distinguishedName": [
+                      "CN=nogroups,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Anders Vidal",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "anvi"
+                    ],
+                    "givenName": [
+                      "Anders"
+                    ],
+                    "distinguishedName": [
+                      "CN=Anders Vidal,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Vidal"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Fredrik Seebass",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "frse"
+                    ],
+                    "givenName": [
+                      "Fredrik"
+                    ],
+                    "distinguishedName": [
+                      "CN=Fredrik Seebass,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Seebass"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso2",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso2"
+                    ],
+                    "givenName": [
+                      "peso2"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso2,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso3",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso3"
+                    ],
+                    "givenName": [
+                      "peso3"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso3,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso4",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso4"
+                    ],
+                    "givenName": [
+                      "peso4"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso4,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso5",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso5"
+                    ],
+                    "givenName": [
+                      "peso5"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso5,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso6",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso6"
+                    ],
+                    "givenName": [
+                      "peso6"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso6,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso7",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso7"
+                    ],
+                    "givenName": [
+                      "peso7"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso7,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso8",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso8"
+                    ],
+                    "givenName": [
+                      "peso8"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso8,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso9",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso9"
+                    ],
+                    "givenName": [
+                      "peso9"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso9,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso10",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso10"
+                    ],
+                    "givenName": [
+                      "peso10"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso10,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso11",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso11"
+                    ],
+                    "givenName": [
+                      "peso11"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso11,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso12",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso12"
+                    ],
+                    "givenName": [
+                      "peso12"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso12,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso13",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso13"
+                    ],
+                    "givenName": [
+                      "peso13"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso13,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso14",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso14"
+                    ],
+                    "givenName": [
+                      "peso14"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso14,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso15",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso15"
+                    ],
+                    "givenName": [
+                      "peso15"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso15,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso16",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso16"
+                    ],
+                    "givenName": [
+                      "peso16"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso16,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso17",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso17"
+                    ],
+                    "givenName": [
+                      "peso17"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso17,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso18",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso18"
+                    ],
+                    "givenName": [
+                      "peso18"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso18,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso19",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso19"
+                    ],
+                    "givenName": [
+                      "peso19"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso19,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "peso20",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peso20"
+                    ],
+                    "givenName": [
+                      "peso20"
+                    ],
+                    "distinguishedName": [
+                      "CN=peso20,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "annan",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "annan"
+                    ],
+                    "givenName": [
+                      "annan"
+                    ],
+                    "distinguishedName": [
+                      "CN=annan,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "OU",
+                  "rdn_value": "OneHourPwds",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "oh1",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "oh1"
+                        ],
+                        "givenName": [
+                          "oh1"
+                        ],
+                        "distinguishedName": [
+                          "CN=oh1,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "oh2",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "oh2"
+                        ],
+                        "givenName": [
+                          "oh2"
+                        ],
+                        "distinguishedName": [
+                          "CN=oh2,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "oh3",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "oh3"
+                        ],
+                        "givenName": [
+                          "oh3"
+                        ],
+                        "distinguishedName": [
+                          "CN=oh3,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "oh4",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "oh4"
+                        ],
+                        "givenName": [
+                          "oh4"
+                        ],
+                        "distinguishedName": [
+                          "CN=oh4,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "oh5",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "oh5"
+                        ],
+                        "givenName": [
+                          "oh5"
+                        ],
+                        "distinguishedName": [
+                          "CN=oh5,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "suboh1",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "suboh1"
+                        ],
+                        "givenName": [
+                          "suboh1"
+                        ],
+                        "distinguishedName": [
+                          "CN=suboh1,OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "OU=OneHourPwds,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "OU",
+                  "rdn_value": "FifteenMinutePwds",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "fm1",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "fm1"
+                        ],
+                        "givenName": [
+                          "fm1"
+                        ],
+                        "distinguishedName": [
+                          "CN=fm1,OU=FifteenMinutePwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    },
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "fm2",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "fm2"
+                        ],
+                        "givenName": [
+                          "fm2"
+                        ],
+                        "distinguishedName": [
+                          "CN=fm2,OU=FifteenMinutePwds,OU=mgusers,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ],
+                  "attributes": {
+                    "distinguishedName": [
+                      "OU=FifteenMinutePwds,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "test",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "test"
+                    ],
+                    "givenName": [
+                      "test"
+                    ],
+                    "distinguishedName": [
+                      "CN=test,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Erland Smørås",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "erlsmo"
+                    ],
+                    "givenName": [
+                      "Erland"
+                    ],
+                    "distinguishedName": [
+                      "CN=Erland Smørås,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Smørås"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "vipul.vithlani",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "vipul.vithlani"
+                    ],
+                    "givenName": [
+                      "vipul.vithlani"
+                    ],
+                    "distinguishedName": [
+                      "CN=vipul.vithlani,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Rune Testman",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "rune"
+                    ],
+                    "givenName": [
+                      "Rune"
+                    ],
+                    "distinguishedName": [
+                      "CN=Rune Testman,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Testman"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "anvi2",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "anvi2"
+                    ],
+                    "givenName": [
+                      "anvi2"
+                    ],
+                    "distinguishedName": [
+                      "CN=anvi2,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Lisa Markström - Xlisa123",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "xlisa123"
+                    ],
+                    "givenName": [
+                      "Lisa"
+                    ],
+                    "distinguishedName": [
+                      "CN=Lisa Markström - Xlisa123,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Markström - Xlisa123"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "testare testare",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "testare"
+                    ],
+                    "givenName": [
+                      "testare"
+                    ],
+                    "distinguishedName": [
+                      "CN=testare testare,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "testare"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Pernilla Udnæs",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "peud"
+                    ],
+                    "givenName": [
+                      "Pernilla"
+                    ],
+                    "distinguishedName": [
+                      "CN=Pernilla Udnæs,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Udnæs"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "pew pew. pew",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "PEW"
+                    ],
+                    "givenName": [
+                      "pew"
+                    ],
+                    "distinguishedName": [
+                      "CN=pew pew. pew,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "pew"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "chooakim",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "edu.adm.joakim.nordi"
+                    ],
+                    "givenName": [
+                      "chooakim"
+                    ],
+                    "distinguishedName": [
+                      "CN=chooakim,OU=mgusers,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Anders Bastos",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "anba"
+                    ],
+                    "givenName": [
+                      "Anders"
+                    ],
+                    "distinguishedName": [
+                      "CN=Anders Bastos,OU=mgusers,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Bastos"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "OU=mgusers,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "OU",
+              "rdn_value": "Åäö User Container",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Gösta Testgubbe",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "gösta"
+                    ],
+                    "givenName": [
+                      "Gösta"
+                    ],
+                    "distinguishedName": [
+                      "CN=Gösta Testgubbe,OU=Åäö User Container,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Testgubbe"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "FifteenMinuteGroupWithSpecialDN",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "FifteenMinuteGroupWithSpecialDN"
+                    ],
+                    "distinguishedName": [
+                      "CN=FifteenMinuteGroupWithSpecialDN,OU=Åäö User Container,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "OU=Åäö User Container,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "OU",
+              "rdn_value": "Container med Mellanslag",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Lasse Oumellanslag",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "lasse"
+                    ],
+                    "givenName": [
+                      "Lasse"
+                    ],
+                    "distinguishedName": [
+                      "CN=Lasse Oumellanslag,OU=Container med Mellanslag,DC=labb3,DC=local"
+                    ],
+                    "sn": [
+                      "Oumellanslag"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "OU=Container med Mellanslag,DC=labb3,DC=local"
+                ]
+              }
+            },
+            {
+              "rdn_type": "OU",
+              "rdn_value": "MGGroups",
+              "children": [
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "normal-users",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "normal-users"
+                    ],
+                    "distinguishedName": [
+                      "CN=normal-users,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "mgadmins",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "mgadmins"
+                    ],
+                    "distinguishedName": [
+                      "CN=mgadmins,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "helpdeskusers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "helpdeskusers"
+                    ],
+                    "distinguishedName": [
+                      "CN=helpdeskusers,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "GroupWithUppercaseLetters",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "GroupWithUppercaseLetters"
+                    ],
+                    "distinguishedName": [
+                      "CN=GroupWithUppercaseLetters,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "Group With Spaces",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "Group With Spaces"
+                    ],
+                    "distinguishedName": [
+                      "CN=Group With Spaces,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "TwoPsoGroup",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "TwoPsoGroup"
+                    ],
+                    "distinguishedName": [
+                      "CN=TwoPsoGroup,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "FifteenMinutePwdGroup",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "FifteenMinutePwdGroup"
+                    ],
+                    "distinguishedName": [
+                      "CN=FifteenMinutePwdGroup,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "OneHourGroup",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "OneHourGroup"
+                    ],
+                    "distinguishedName": [
+                      "CN=OneHourGroup,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "OU",
+                  "rdn_value": "testar mggroup",
+                  "children": [
+                    {
+                      "rdn_type": "CN",
+                      "rdn_value": "mg group",
+                      "attributes": {
+                        "sAMAccountName": [
+                          "mg-group"
+                        ],
+                        "distinguishedName": [
+                          "CN=mg group,OU=testar mggroup,OU=MGGroups,DC=labb3,DC=local"
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "rdn_type": "OU",
+                  "rdn_value": "testar mggroup",
+                  "attributes": {
+                    "distinguishedName": [
+                      "OU=testar mggroup,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "mgusers",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "mgusers"
+                    ],
+                    "distinguishedName": [
+                      "CN=mgusers,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "gruppen med mellanslag",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "gruppen med mellanslag"
+                    ],
+                    "distinguishedName": [
+                      "CN=gruppen med mellanslag,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "gruppenöäå",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "gruppenöäå"
+                    ],
+                    "distinguishedName": [
+                      "CN=gruppenöäå,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "gruppen med ÄÅÖ",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "gruppen med ÄÅÖ"
+                    ],
+                    "distinguishedName": [
+                      "CN=gruppen med ÄÅÖ,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                },
+                {
+                  "rdn_type": "CN",
+                  "rdn_value": "saratest",
+                  "attributes": {
+                    "sAMAccountName": [
+                      "saratest"
+                    ],
+                    "distinguishedName": [
+                      "CN=saratest,OU=MGGroups,DC=labb3,DC=local"
+                    ]
+                  }
+                }
+              ],
+              "attributes": {
+                "distinguishedName": [
+                  "OU=MGGroups,DC=labb3,DC=local"
+                ]
+              }
+            }
+          ],
+          "attributes": {
+            "distinguishedName": [
+              "DC=labb3,DC=local"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
