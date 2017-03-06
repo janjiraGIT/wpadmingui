@@ -1,42 +1,55 @@
 package com.wizepass.wpadmingui;
 
-
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 import java.util.ArrayList;
 import java.util.List;
 public class RegistationTokenWindow {
-	final Label label = new Label("Issue Registation Tokens");
-	final Label labelUserSelect = new Label("User selected :" );
-    final TextField textField = new TextField("Description : ");
+	
+	final Label irtText = new Label("Issue Registation Tokens");
+	final Label descriptionText = new Label("Description :");
+	final Label validTimeText = new Label("Valid Time :");
+	final Label certProfileText = new Label("Cert Profile :" );
+	final Label userSelectText = new Label("User selected :" );
+	final Label userSelectedValue = new Label();
+	final TextField descriptionValue = new TextField();
     final Window window = new Window();
-    final VerticalLayout layout = new VerticalLayout();
+
     List<String> timeList = new ArrayList<>();
     List<String> profileList = new ArrayList<>();
-    final ComboBox selectTime = new ComboBox("Valid Time :");
-    final ComboBox selectProfile = new ComboBox("Cert profile :");
-   // WpAdminGuiUi wpadminguiui = new WpAdminGuiUi();
-    /**
-     * crate a new Window efter click create register token button.
-     **/
-    public Window createWindow(int countSelect) {
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        timeList = createTimeList();
-        profileList = createProfile();
-        selectTime.addItems(timeList);
-        selectProfile.addItems(profileList);
-        labelUserSelect.setValue("User Selected : " + countSelect);
-        layout.addComponents(label,textField,selectTime,selectProfile,labelUserSelect);
-        window.setContent(layout);
+    final ComboBox timeSelectCombobox = new ComboBox();
+    final ComboBox profileSelectCombobox = new ComboBox();
+
+	public Window createWindow(int countSelect) {
+    	final GridLayout grid = new GridLayout(4,6);
+    	irtText.setStyleName("bold");
+    	grid.addComponent(irtText, 2,0);
+    	grid.addComponent(descriptionText,1,2);
+    	grid.addComponent(validTimeText,1,3);
+    	grid.addComponent(certProfileText,1,4);
+    	grid.addComponent(userSelectText,1,5);  	
+    	timeList = createTimeList();    
+    	profileList = createProfile();  
+    	// add list in combobox
+    	timeSelectCombobox.addItems(timeList);
+    	profileSelectCombobox.addItems(profileList);
+    	// add combobox in grid 
+    	grid.addComponent(descriptionValue,2,2);
+    	grid.addComponent(timeSelectCombobox,2,3);
+    	grid.addComponent(profileSelectCombobox,2,4);  	
+        userSelectedValue.setValue(""+countSelect);
+        grid.addComponent(userSelectedValue,2,5);
+    	grid.setMargin(true);
+    	grid.setSpacing(true);
+        window.setContent(grid);
         window.center();
-        window.setHeight("500px");
-        window.setWidth("700px");
-        window.setPosition(150, 70);
+        window.setHeight("300px");
+        window.setWidth("500px");
+        window.setPosition(400, 300);
         return window;
     }
     private List<String> createTimeList() {
