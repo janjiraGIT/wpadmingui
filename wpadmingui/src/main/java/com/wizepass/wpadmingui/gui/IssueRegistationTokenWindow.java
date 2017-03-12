@@ -26,12 +26,12 @@ public class IssueRegistationTokenWindow {
 	final Button okButton = new Button("OK");
 	final Button cancelButton = new Button("Cancel");
     final Window window = new Window();
-    List<String> timeList = new ArrayList<>();
-    List<String> profileList = new ArrayList<>();
     final ComboBox timeSelectCombobox = new ComboBox();
     final ComboBox profileSelectCombobox = new ComboBox();
     final ComboBox providerCombobox = new ComboBox();
 	final GridLayout grid = new GridLayout(5,8);
+	JSONArray profileJsonArray = null;
+	JSONArray providerJsonArray = null;
 
 	public Window createRegistationTokenWindow(final int userSelected) {
 
@@ -68,12 +68,17 @@ public class IssueRegistationTokenWindow {
     private void addListInToComboBox() {
         final DataController dataController = new DataController();
         final List<String> timeList = dataController.getTimeList();
-        final JSONArray profileList = dataController.getCertProfile();
-        final JSONArray providerList = dataController.getProvider();
+        profileJsonArray = dataController.getCertProfile();
+        providerJsonArray = dataController.getProvider();
         timeSelectCombobox.addItems(timeList);
-        //TODO .... fel
-        profileSelectCombobox.addItems(profileList.get(0));
-        providerCombobox.addItems(providerList.get(0),providerList.get(1));
+        for (int i = 0; i<profileJsonArray.size();i++){
+    		 profileSelectCombobox.addItems(profileJsonArray.get(i));	
+    	}
+        for (int i = 0; i<providerJsonArray.size();i++){
+   		 	providerCombobox.addItems(providerJsonArray.get(i));	
+        }
     }
+    
+
 
 }

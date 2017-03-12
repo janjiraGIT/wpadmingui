@@ -91,8 +91,12 @@ public class WpAdminGuiUi extends UI {
         final JSONArray db = new DataController().getDb();
         customerComboBox.setInputPrompt("Select Customer");
         dbComboBox.setInputPrompt("Select DB");
-        customerComboBox.addItem(customers.get(0));
-        dbComboBox.addItem(db.get(0));
+        for (int i = 0; i < customers.size(); i++){
+        	customerComboBox.addItem(customers.get(i));
+        }
+        for ( int i = 0; i < db.size(); i++){
+            dbComboBox.addItem(db.get(i));
+        }
         buttonLayout.addComponents(customerComboBox,dbComboBox);
         buttonLayout.setSpacing(true);
         tabUserDbApi.addComponents(buttonLayout,treeTableFactory.getTreeTable(), buttonCreateRegToken);
