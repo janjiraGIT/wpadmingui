@@ -5,8 +5,11 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
 import com.wizepass.wpadmingui.controller.DataController;
 
 import java.util.ArrayList;
@@ -40,6 +43,19 @@ public class IssueRegistationTokenWindow {
     	addListInToComboBox();
     	userSelectedValue.setValue(""+userSelected);
         window.setContent(grid);
+        okButton.addClickListener(new Button.ClickListener() {	
+			@Override
+			public void buttonClick(ClickEvent event) {
+				Notification.show("Click Ok", Type.TRAY_NOTIFICATION);	
+			}
+		});
+        cancelButton.addClickListener(new Button.ClickListener() {	
+			@Override
+			public void buttonClick(ClickEvent event) {
+				Notification.show("Click Cancel", Type.TRAY_NOTIFICATION);	
+				window.close();
+			}
+		});
         window.center();
         window.setHeight("400px");
         window.setWidth("500px");
