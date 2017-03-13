@@ -10,7 +10,9 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Notification.Type;
 import com.vaadin.ui.TabSheet;
@@ -50,16 +52,24 @@ public class WpAdminGuiUi extends UI {
 	    int countName ;
         int countNameSelect = 0;
 	    private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
-
+	    private Window window = new Window();
+	    final Label textToken = new Label("Token");
+	    final TextField token = new TextField("Enter Token");
+	    final Button okButton = new Button("ok");
+	    final Button cancelButton = new Button("cancel");
+	    final GridLayout grid = new GridLayout(4,4);
+    	TokenGui tokenGui = new TokenGui();
  
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
-    	   createUserDbApiTab();
-           registationToken.createRegistationTokenTab(tabsheet);
-           layoutMain.addComponent(tabsheet);
-           layoutMain.setMargin(true);
-           layoutMain.setSpacing(true);
-           setContent(layoutMain);
+    	window = tokenGui.createTokenWindow();
+    	addWindow(window);   
+    	createUserDbApiTab();
+        registationToken.createRegistationTokenTab(tabsheet);
+        layoutMain.addComponent(tabsheet);
+        layoutMain.setMargin(true);
+        layoutMain.setSpacing(true);
+        setContent(layoutMain);
        
     }
     public void createUserDbApiTab() {
@@ -86,6 +96,7 @@ public class WpAdminGuiUi extends UI {
             IssueRegistationTokenWindow rgtWindow = new IssueRegistationTokenWindow();
             Window issueRegTokens = rgtWindow.createRegistationTokenWindow(countNameSelect);           
             addWindow(issueRegTokens);        
+            
         }); 
         final JSONArray customers = new DataController().getCustomer();
         final JSONArray db = new DataController().getDb();
