@@ -35,6 +35,7 @@ public class TreeTableFactory {
         tmpTreeTable.addContainerProperty("LDAP Tree", CheckBox.class, "");
         tmpTreeTable.addContainerProperty("Given Name", String.class, null);
         tmpTreeTable.addContainerProperty("Surname", String.class, null);
+        tmpTreeTable.addContainerProperty("DNS", String.class, null);
 
         this.nextItemId = 0;
         this.tmpPersons = new HashMap<>();
@@ -55,8 +56,7 @@ public class TreeTableFactory {
 
         // add Items to Treeview
         Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
-        // ttable.addItem(new Object[]{"Root"}, 0); // only one obj
-        tmpTreeTable.addItem(rootItems, rootItemId); // {Checkbox,null,null }, 0 
+        tmpTreeTable.addItem(rootItems, rootItemId);
 
         // parse children
         final List<CheckBox> rootChildrenCheckBoxes =
@@ -143,7 +143,6 @@ public class TreeTableFactory {
 
         // Add checkbox with value
         if (nodeAttributes.containsKey(RDN_VALUE)) {
-        	// CheckBox checkBox = new CheckBox("Check1");
             final CheckBox checkBox = new CheckBox(nodeAttributes.get(RDN_VALUE));
             itemList.add(checkBox);
         } else {
@@ -163,13 +162,20 @@ public class TreeTableFactory {
         } else {
             itemList.add(null);
         }
-
+        // Add DNS
+        if (nodeAttributes.containsKey(RdnTypeParserCn.DNS)) {
+            itemList.add(nodeAttributes.get(RdnTypeParserCn.DNS));
+        } else {
+            itemList.add(null);
+        }
         // add nodeAttributes to persons if the type is correct (ObjectType == person or similar)
 // TODO !!! Now its not CORRECT
         final String nodeTypeStr = nodeAttributes.get(RDN_TYPE_STR).toUpperCase();
         if (RdnType.valueOf(nodeTypeStr) == RdnType.CN) {
             tmpPersons.put(nodeId, nodeAttributes);
         }
+        
+        
 
         return itemList.toArray(new Object[itemList.size()]);
     }
