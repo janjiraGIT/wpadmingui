@@ -32,6 +32,7 @@ import javax.servlet.annotation.WebServlet;
 
 @Theme("WpAdminGuiTheme")
 public class WpAdminGuiUi extends UI {
+	//test
     final VerticalLayout layoutMain = new VerticalLayout();
     final HorizontalLayout buttonLayout = new HorizontalLayout();
     final VerticalLayout tabUserDbApi = new VerticalLayout();
