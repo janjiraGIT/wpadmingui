@@ -3,10 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mobilityguard.wizepass.wpadmingui</groupId>
+	<groupId>com.wizepass</groupId>
+	<artifactId>WpAdminGui</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>userdata</name>
+	<name>WpAdminGui</name>
+
 	<prerequisites>
 		<maven>3</maven>
 	</prerequisites>
@@ -20,13 +22,12 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- If there are no local customisations, this can also be "fetch" or "cdn" -->
 		<vaadin.widgetset.mode>local</vaadin.widgetset.mode>
-		
 		<!-- logger -->
 		<slf4j.version>1.7.22</slf4j.version>
 		<logback.version>1.2.1</logback.version>
 		<logstash.encoder.version>4.8</logstash.encoder.version>
-		
 	</properties>
+	
 
 	<repositories>
 		<repository>
@@ -55,11 +56,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-		<groupId>org.apache.httpcomponents</groupId>
-		<artifactId>httpclient</artifactId>
-		<version>4.1.1</version>
-		</dependency>
-		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
 		</dependency>
@@ -75,29 +71,17 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
+		<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.1.1</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
 		<dependency>
 		    <groupId>com.googlecode.json-simple</groupId>
 		    <artifactId>json-simple</artifactId>
 		    <version>1.1</version>
 		</dependency>
-		<!-- logger -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>		
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.logstash.logback</groupId>
-			<artifactId>logstash-logback-encoder</artifactId>
-			<version>${logstash.encoder.version}</version>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -202,5 +186,4 @@
 		</profile>
 	</profiles>
 
-	<artifactId>userdata</artifactId>
 </project>

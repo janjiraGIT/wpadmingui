@@ -1,24 +1,4 @@
-package com.wizepass.wpadmingui.gui;
-
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.VaadinServletConfiguration;
-import com.vaadin.data.Item;
-import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.CheckBox;
-import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Window;
-import com.wizepass.wpadmingui.controller.DataController;
-import com.wizepass.wpadmingui.userdata.TreeTableFactory;
-import com.wizepass.wpadmingui.util.Constants;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+package com.wizepass.WpAdminGui.gui;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -31,7 +11,40 @@ import java.util.logging.Logger;
 
 import javax.servlet.annotation.WebServlet;
 
-@Theme("WpAdminGuiTheme")
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.data.Item;
+import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.TabSheet;
+import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
+import com.wizepass.WpAdminGui.controller.DataController;
+import com.wizepass.WpAdminGui.gui.IssueRegistationTokenWindow;
+import com.wizepass.WpAdminGui.gui.RegistationTokenTab;
+import com.wizepass.WpAdminGui.gui.TokenGui;
+import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
+import com.wizepass.WpAdminGui.userdata.TreeTableFactory;
+import com.wizepass.WpAdminGui.util.Constants;
+
+/**
+ * This UI is the application entry point. A UI may either represent a browser window 
+ * (or tab) or some part of a html page where a Vaadin application is embedded.
+ * <p>
+ * The UI is initialized using {@link #init(VaadinRequest)}. This method is intended to be 
+ * overridden to add component to the user interface and initialize non-component functionality.
+ */
+@Theme("mytheme")
 public class WpAdminGuiUi extends UI {
 	//test
     final VerticalLayout layoutMain = new VerticalLayout();
@@ -207,8 +220,8 @@ public class WpAdminGuiUi extends UI {
         return treeTableFactory;
     }
 
-    @WebServlet(urlPatterns = "/*", name = "WpAdminGuiUiServlet", asyncSupported = true)
+    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = WpAdminGuiUi.class, productionMode = false)
-    public static class WpAdminGuiServlet extends VaadinServlet {
+    public static class MyUIServlet extends VaadinServlet {
     }
 }
