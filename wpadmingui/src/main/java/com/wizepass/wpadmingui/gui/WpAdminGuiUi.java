@@ -15,6 +15,7 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.wizepass.wpadmingui.controller.DataController;
 import com.wizepass.wpadmingui.userdata.TreeTableFactory;
+import com.wizepass.wpadmingui.util.Constants;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -55,7 +56,6 @@ public class WpAdminGuiUi extends UI {
     private List<String> listOfDns = new ArrayList<>();
     private String dbSelected = null;
     private String valueAuthHeader;
-    final String token = "Bearer 123";
     private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
 
     @Override
@@ -71,11 +71,11 @@ public class WpAdminGuiUi extends UI {
 
     // no header or authorization is not correct.
     private void checkToken(final String valueAuthHeader) {
-        if ( token.equals(valueAuthHeader)) {
+        if ( Constants.TOKEN.equals(valueAuthHeader)) {
             createUserDbApiTab();
         } else {
             final TokenGui tokenGui = new TokenGui();
-            window = tokenGui.createTokenWindow(token);
+            window = tokenGui.createTokenWindow(Constants.TOKEN);
             addWindow(window);
             createUserDbApiTab();
         }
