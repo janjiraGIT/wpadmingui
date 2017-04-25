@@ -8,7 +8,7 @@ public class Constants {
     public static final String DB_MGAB = "./db_mgab.json";
     public static final String PROVIDER = "./provider.json";
     public static final String CERT_PROFILE = "./cert_profile.json";
-    public static final String REG_TOKEN_URL = "regToken";
+    public static final String REG_TOKEN = "./reg_token.json";
     public static final String USER_MG = "./users.json";
     
     public static final String TOKEN = "Bearer 123";

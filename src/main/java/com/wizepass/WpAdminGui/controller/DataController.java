@@ -19,6 +19,7 @@ public class DataController {
     private JSONArray provider;
     private JSONArray certProfile;
     private JSONArray dbGskolan;
+    private JSONArray regTokens;
     private JSONArray mgUsersPara;
     
 
@@ -125,6 +126,19 @@ public class DataController {
         timeList.add("P1M");//Month
         return timeList;
     }
+    /**
+     * list of Users.
+     */
+    public JSONArray getRegistrationtokens() {
+        try {
+        	regTokens = httpClient.getJsonArray(Constants.REG_TOKEN);
+        } catch (Exception e) {
+            e.getMessage();
+            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+        }
+        return regTokens;
+    }
+
 
     /**
      * list of Users.

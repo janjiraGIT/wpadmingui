@@ -1,0 +1,17 @@
+[
+   {
+      "givenName": "Per",
+      "sn": "Sonden", 
+      "distinguishedName" : "CN=Per Sonden,OU=mgusers,DC=labb3,DC=local"
+    },
+       {
+      "givenName": "Anders",
+      "sn": "Vidal",
+      "distinguishedName" : "CN=Anders Vidal,OU=mgusers,DC=labb3,DC=local"
+   },
+       {
+     "givenName": "Peso",
+      "sn": "Peso15",
+       "distinguishedName" : "Peso Peso15,OU=mgusers,DC=labb3,DC=local"
+   }
+ ]
