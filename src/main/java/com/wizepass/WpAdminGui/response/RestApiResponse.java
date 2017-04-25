@@ -51,5 +51,23 @@ public class RestApiResponse {
 		}
 		return jsonArray;  	
     }
+    
+    public JSONArray loadDataJsonArrayWithParametrs(final String url, final String parameter)  {
+    	try {
+    		// TODO: not correct to pass 2 parameters because url is json file 
+    		reader = new FileReader(url+parameter);
+    	}catch (IOException e) {
+    		logger.log(Level.WARNING, "Error read file", e.getMessage());
+    	} 	
+    	final JSONParser jsonParser = new JSONParser();
+		try {
+			jsonArray = (JSONArray) jsonParser.parse(reader);
+		} catch (IOException e) {
+			logger.log(Level.WARNING, "Error IOException", e.getMessage());
+		} catch (ParseException e) {
+			logger.log(Level.WARNING, "Error Parse", e.getMessage());
+		}
+		return jsonArray;  	
+    }
 
 }

@@ -19,6 +19,7 @@ public class DataController {
     private JSONArray provider;
     private JSONArray certProfile;
     private JSONArray dbGskolan;
+    private JSONArray mgUsersPara;
     
 
     /**
@@ -124,5 +125,19 @@ public class DataController {
         timeList.add("P1M");//Month
         return timeList;
     }
+
+    /**
+     * list of Users.
+     */
+    public JSONArray getMgUsers(final String parameter) {
+        try {
+        	mgUsersPara = httpClient.getJsonArray(Constants.USER_MG);
+        } catch (Exception e) {
+            e.getMessage();
+            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+        }
+        return mgUsersPara;
+    }
+    
 
 }

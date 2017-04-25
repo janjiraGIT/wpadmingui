@@ -24,11 +24,13 @@ import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.themes.ValoTheme;
 import com.wizepass.WpAdminGui.controller.DataController;
 import com.wizepass.WpAdminGui.gui.IssueRegistationTokenWindow;
 import com.wizepass.WpAdminGui.gui.RegistationTokenTab;
@@ -49,11 +51,14 @@ public class WpAdminGuiUi extends UI {
 	//test
     final VerticalLayout layoutMain = new VerticalLayout();
     final HorizontalLayout buttonLayout = new HorizontalLayout();
+    final HorizontalLayout searchLayout = new HorizontalLayout();
     final VerticalLayout tabUserDbApi = new VerticalLayout();
     final TabSheet tabsheet = new TabSheet();
     final Button buttonCreateRegToken = new Button("Create Issue Registation Tokens");
     final ComboBox customerComboBox = new ComboBox();
     final ComboBox dbComboBox = new ComboBox();
+    final TextField searchTextField = new TextField();
+    final Button searchButtonOk = new Button("OK");
     private Window window = new Window();
     final DataController controller = new DataController();
     final JSONObject jsonObj = controller.getAllUserLabb3();
@@ -70,6 +75,7 @@ public class WpAdminGuiUi extends UI {
     private String dbSelected = null;
     private String valueAuthHeader;
     private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
+    private String strSearch;
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -109,6 +115,9 @@ public class WpAdminGuiUi extends UI {
         buttonCreateRegToken.setEnabled(false);
         final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
         buttonCreateRegToken.setEnabled(true);
+        buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
+        searchButtonOk.setVisible(true);
+        searchUsers();
         customerComboBox.setNullSelectionItemId(false);
         addCustomerInToComboBox();
         mapSelected = getValueSelected();
@@ -139,9 +148,23 @@ public class WpAdminGuiUi extends UI {
         });
         buttonLayout.addComponents(customerComboBox,dbComboBox);
         buttonLayout.setSpacing(true);
-        tabUserDbApi.addComponents(buttonLayout,treeTableFactory.getTreeTable(), buttonCreateRegToken);
+        searchLayout.addComponents(searchTextField,searchButtonOk);
+        searchLayout.setSpacing(true);
+        tabUserDbApi.addComponents(buttonLayout,treeTableFactory.getTreeTable(), buttonCreateRegToken, searchLayout);
         tabUserDbApi.setSpacing(true);
         tabsheet.addTab(tabUserDbApi, "UserDbApi");
+    }
+    
+    private void searchUsers() {
+    	searchTextField.addValueChangeListener(event -> {
+    		strSearch = (String) event.getProperty().getValue();
+    		Notification.show(strSearch);	
+    	});
+    	searchButtonOk.addClickListener(event -> {
+    		logger.log(Level.INFO, "Request Log :" + strSearch);
+    		final JSONArray user = controller.getMgUsers(strSearch);
+    		logger.log(Level.INFO, "Response log :" + user);
+    	});
     }
 
     /**
