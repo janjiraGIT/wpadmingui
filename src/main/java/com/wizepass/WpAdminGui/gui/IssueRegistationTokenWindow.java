@@ -1,6 +1,8 @@
 package com.wizepass.WpAdminGui.gui;
 
 
+import com.vaadin.server.Page;
+import com.vaadin.shared.Position;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
@@ -12,12 +14,20 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.Button.ClickEvent;
 import com.wizepass.WpAdminGui.controller.DataController;
+import com.wizepass.WpAdminGui.response.RestApiResponse;
+import com.wizepass.WpAdminGui.util.Constants;
+import com.wizepass.WpAdminGui.util.JsonUtil;
 
+import org.apache.http.ParseException;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.json.JsonObject;
 
 
 public class IssueRegistationTokenWindow {
@@ -109,19 +119,39 @@ public class IssueRegistationTokenWindow {
         providerCombobox.addValueChangeListener(event -> {
             providerStr = (String) event.getProperty().getValue();
         });
+        final String customer = mapSelected.get("CustomerSelected").toString();
+        final String userDb = mapSelected.get("DbSelected");
         okButton.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(final ClickEvent event) {
-                Notification.show( "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"
-                                 + "UserDbId :   " +  mapSelected.get("DbSelected") + "\n\n"
-                                 + "ListOfEndUserId :   " + listOfDns + "\n\n"
-                                 + "Description : " + descriptionValueStr + "\n\n"
-                                 + "ValidTime :      " + timeValueStr + "\n\n"
-                                 + "CertProfileId : " + certProfileStr + "\n\n"
-                                 + "ProviderId :   " + providerStr + "\n\n"
-                                 + "UserSelected :   " + userSelected + "\n\n",
-                                 Type.HUMANIZED_MESSAGE);
+            	final JsonUtil jsonUtil = new JsonUtil();
+            	final JsonObject obj = jsonUtil.buildJsonObject(customer, userDb, listOfDns, dbSelected, dbSelected, dbSelected, dbSelected, userSelected);
+            	
+            	try {
+            		final RestApiResponse restApiResponse = new RestApiResponse();
+            		final List<String> dataPost = restApiResponse.postData(obj,Constants.URL_ADDRESS+Constants.WP_REST+Constants.REG_TOKENS );
+            		final String data = dataPost.get(0);
+            		final JSONObject jsonObj = new JsonUtil().createJsonObject(data);
+            		final String text1 = (String) jsonObj.get("_id");
+            		final Notification notification = new Notification(
+            						 "Batch_id : "     + text1 + "\n\n"
+            						 +  "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"
+                                     + "UserDbId :   " +  mapSelected.get("DbSelected") + "\n\n"
+                                     + "ListOfEndUserId :   " + listOfDns + "\n\n"
+                                     + "Description : " + descriptionValueStr + "\n\n"
+                                     + "ValidTime :      " + timeValueStr + "\n\n"
+                                     + "CertProfileId : " + certProfileStr + "\n\n"
+                                     + "ProviderId :   " + providerStr + "\n\n"
+                                     + "UserSelected :   " + userSelected + "\n\n",
+                                     Type.HUMANIZED_MESSAGE);
+            		notification.setDelayMsec(20000);
+            		notification.show(Page.getCurrent());
+            		notification.setPosition(Position.BOTTOM_LEFT);
+            	} catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
+                    System.out.println("Fel IO | Parse Exception" + e.getStackTrace());
+                }  
             }
+            	
         });
         cancelButton.addClickListener(new Button.ClickListener() {
             @Override

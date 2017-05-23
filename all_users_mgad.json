@@ -1,14 +1,14 @@
-	{
-	  "rdn_type": "root",
-	  "rdn_value": "root",
-	  "children": [
-	    {
-	      "rdn_type": "DC",
-	      "rdn_value": "local",
+{
+  "rdn_type": "root",
+  "rdn_value": "root",
+  "children": [
+    {
+      "rdn_type": "DC",
+      "rdn_value": "local",
       "children": [
         {
           "rdn_type": "DC",
-          "rdn_value": "labb3",
+          "rdn_value": "mgad",
           "children": [
             {
               "rdn_type": "CN",
@@ -23,19 +23,6 @@
                     ],
                     "distinguishedName": [
                       "CN=Administrator,CN=Users,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "Guest",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "Guest"
-                    ],
-                    "distinguishedName": [
-                      "CN=Guest,CN=Users,DC=labb3,DC=local"
                     ]
                   },
                   "object_class": "person"

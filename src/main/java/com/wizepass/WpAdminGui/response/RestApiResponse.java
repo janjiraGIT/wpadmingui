@@ -1,15 +1,28 @@
 package com.wizepass.WpAdminGui.response;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import elemental.json.JsonObject;
 
 public class RestApiResponse {
 
@@ -68,6 +81,29 @@ public class RestApiResponse {
 			logger.log(Level.WARNING, "Error Parse", e.getMessage());
 		}
 		return jsonArray;  	
+    }
+    
+    /**
+     * Post json body.
+     */
+    public List<String> postData(final javax.json.JsonObject obj, final String postUrl) throws ClientProtocolException, IOException, ParseException {
+        final HttpPost httpPost = new HttpPost(postUrl);
+        final String jsonDataStr = obj.toString();
+        final HttpClient client = HttpClientBuilder.create().build();
+        StringEntity entity = new StringEntity(jsonDataStr, "UTF-8");
+        entity.setContentType("application/json");
+        httpPost.setEntity(entity);
+        HttpResponse response = client.execute(httpPost);
+        int responseCode = response.getStatusLine().getStatusCode();
+        System.out.println("Add registrationtoken response: " + responseCode);
+        final BufferedReader reader = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent(),  "UTF-8"));
+        String line = "";
+        final List<String> list = new ArrayList<String>();
+        while ((line = reader.readLine()) != null) {
+            list.add(line);
+        }
+        return list;
     }
 
 }

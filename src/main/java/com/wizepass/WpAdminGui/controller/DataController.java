@@ -37,6 +37,18 @@ public class DataController {
     }
     
     /**
+     * list of all users.
+     */
+    public JSONObject getTest() {
+    	try {
+            jsonObj  = httpClient.loadLdapData(Constants.TEST);
+        }   catch (Exception e) {
+            e.getMessage();
+        }
+        return jsonObj;
+    }
+    
+    /**
      * list of all users in Mgad.
      */
     // TODO : list is empty.
@@ -81,7 +93,7 @@ public class DataController {
      */
     public JSONArray getGranskolanDb() {
         try {
-            dbGskolan = httpClient.getJsonArray(Constants.DB_GSKOLAN);
+            dbGskolan = httpClient.getJsonArray(Constants.DB_ANVI);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getGskolan method is not correct. Check url again. ");

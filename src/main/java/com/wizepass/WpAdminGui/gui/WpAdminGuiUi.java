@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.servlet.annotation.WebServlet;
 
 import org.json.simple.JSONArray;
@@ -61,7 +60,6 @@ public class WpAdminGuiUi extends UI {
     final Button searchButtonOk = new Button("OK");
     private Window window = new Window();
     final DataController controller = new DataController();
-    final JSONObject jsonObj = controller.getAllUserLabb3();
     final JSONArray customers = controller.getCustomers();
     final JSONArray dbMgab = controller.getMgabDb();
     final RegistationTokenTab registationToken = new RegistationTokenTab();
@@ -95,7 +93,7 @@ public class WpAdminGuiUi extends UI {
         } else {
             final TokenGui tokenGui = new TokenGui();
             window = tokenGui.createTokenWindow(Constants.TOKEN);
-            addWindow(window);
+            addWindow(window);            
             createUserDbApiTab();
         }
     }
@@ -113,6 +111,12 @@ public class WpAdminGuiUi extends UI {
     // create user db api.
     private void createUserDbApiTab() {
         buttonCreateRegToken.setEnabled(false);
+  
+        
+        final JSONObject jsonObj = controller.getAllUserLabb3();
+        //final JSONObject jsonObj = controller.getTest();
+        
+        
         final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
         buttonCreateRegToken.setEnabled(true);
         buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
@@ -189,7 +193,8 @@ public class WpAdminGuiUi extends UI {
     }
 
     private void getDb() {
-        if ( customerSelected.equals("granskolan")) {
+    	// TODO : needs to fix to pass a parameter instade pass "anvi"
+        if ( customerSelected.equals("anvi")) {
             logger.log(Level.INFO, "Customer Selected: " + customerSelected.toString());
             final JSONArray dbSkolan = controller.getGranskolanDb();
             if (dbSkolan != null) {
@@ -198,7 +203,7 @@ public class WpAdminGuiUi extends UI {
                     dbComboBox.select(dbSkolan.get(0));
                     dbComboBox.setNullSelectionAllowed(false);
                 }
-                logger.log(Level.INFO, "DB granskolan: " + dbSkolan);
+                logger.log(Level.INFO, "DB anvi: " + dbSkolan);
             }
         } else if ( customerSelected.equals("mgab")) {
             logger.log(Level.INFO, "Customer Selected: " + customerSelected.toString());
