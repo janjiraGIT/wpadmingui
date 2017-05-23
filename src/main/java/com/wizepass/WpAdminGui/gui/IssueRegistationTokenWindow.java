@@ -132,10 +132,9 @@ public class IssueRegistationTokenWindow {
             		final List<String> dataPost = restApiResponse.postData(obj,Constants.URL_ADDRESS+Constants.WP_REST+Constants.REG_TOKENS );
             		final String data = dataPost.get(0);
             		final JSONObject jsonObj = new JsonUtil().createJsonObject(data);
-            		final String text1 = (String) jsonObj.get("_id");
             		final Notification notification = new Notification(
-            						 "Batch_id : "     + text1 + "\n\n"
-            						 +  "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"
+            					
+            						 "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"
                                      + "UserDbId :   " +  mapSelected.get("DbSelected") + "\n\n"
                                      + "ListOfEndUserId :   " + listOfDns + "\n\n"
                                      + "Description : " + descriptionValueStr + "\n\n"
@@ -147,9 +146,11 @@ public class IssueRegistationTokenWindow {
             		notification.setDelayMsec(20000);
             		notification.show(Page.getCurrent());
             		notification.setPosition(Position.BOTTOM_LEFT);
-            	} catch (IOException | ParseException | org.json.simple.parser.ParseException e) {
+            	} catch (IOException | ParseException e) {
                     System.out.println("Fel IO | Parse Exception" + e.getStackTrace());
-                }  
+                } catch (org.json.simple.parser.ParseException e) {
+                	e.printStackTrace();
+				}  
             }
             	
         });

@@ -90,20 +90,25 @@ public class RestApiResponse {
         final HttpPost httpPost = new HttpPost(postUrl);
         final String jsonDataStr = obj.toString();
         final HttpClient client = HttpClientBuilder.create().build();
+        final List<String> list = new ArrayList<String>();
         StringEntity entity = new StringEntity(jsonDataStr, "UTF-8");
         entity.setContentType("application/json");
         httpPost.setEntity(entity);
-        HttpResponse response = client.execute(httpPost);
-        int responseCode = response.getStatusLine().getStatusCode();
-        System.out.println("Add registrationtoken response: " + responseCode);
-        final BufferedReader reader = new BufferedReader(
-                new InputStreamReader(response.getEntity().getContent(),  "UTF-8"));
-        String line = "";
-        final List<String> list = new ArrayList<String>();
-        while ((line = reader.readLine()) != null) {
-            list.add(line);
+        try {
+        	HttpResponse response = client.execute(httpPost);
+        	 int responseCode = response.getStatusLine().getStatusCode();
+             System.out.println("Add registrationtoken response: " + responseCode);
+             final BufferedReader reader = new BufferedReader(
+                     new InputStreamReader(response.getEntity().getContent(),  "UTF-8"));
+             String line = "";
+             while ((line = reader.readLine()) != null) {
+                 list.add(line);
+             }
+        }catch (Exception e){
+        	e.getStackTrace();
+        	System.out.println("Could not get any response.There was an error connecting to http://localhost:8081/WpRest/users/registrationtokens");
         }
-        return list;
+		return list;       
     }
 
 }
