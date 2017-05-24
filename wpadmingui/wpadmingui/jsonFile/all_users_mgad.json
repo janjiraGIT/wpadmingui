@@ -22,7 +22,7 @@
                       "Administrator"
                     ],
                     "distinguishedName": [
-                      "CN=Administrator,CN=Users,DC=labb3,DC=local"
+                      "CN=Administrator,CN=Users,DC=mgad"
                     ]
                   },
                   "object_class": "person"
@@ -35,7 +35,7 @@
                       "krbtgt"
                     ],
                     "distinguishedName": [
-                      "CN=krbtgt,CN=Users,DC=labb3,DC=local"
+                      "CN=krbtgt,CN=Users,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
@@ -51,7 +51,7 @@
                       "administrator2"
                     ],
                     "distinguishedName": [
-                      "CN=administrator2,CN=Users,DC=labb3,DC=local"
+                      "CN=administrator2,CN=Users,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
@@ -70,7 +70,7 @@
                       "DCLABB3$"
                     ],
                     "distinguishedName": [
-                      "CN=DCLABB3,OU=Domain Controllers,DC=labb3,DC=local"
+                      "CN=DCLABB3,OU=Domain Controllers,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
@@ -92,7 +92,7 @@
                       "Per"
                     ],
                     "distinguishedName": [
-                      "CN=Per Sonden,OU=mgusers,DC=labb3,DC=local"
+                      "CN=Per Sonden,OU=mgusers,DC=mgad,DC=local"
                     ],
                     "sn": [
                       "Sonden"
@@ -111,7 +111,7 @@
                       "Revokey"
                     ],
                     "distinguishedName": [
-                      "CN=Revokey Certsson,OU=mgusers,DC=labb3,DC=local"
+                      "CN=Revokey Certsson,OU=mgusers,DC=mgad,DC=local"
                     ],
                     "sn": [
                       "Certsson"
@@ -130,7 +130,7 @@
                       "nogroups"
                     ],
                     "distinguishedName": [
-                      "CN=nogroups,OU=mgusers,DC=labb3,DC=local"
+                      "CN=nogroups,OU=mgusers,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
@@ -146,7 +146,7 @@
                       "Anders"
                     ],
                     "distinguishedName": [
-                      "CN=Anders Vidal,OU=mgusers,DC=labb3,DC=local"
+                      "CN=Anders Vidal,OU=mgusers,DC=mgad,DC=local"
                     ],
                     "sn": [
                       "Vidal"
@@ -165,7 +165,7 @@
                       "Fredrik"
                     ],
                     "distinguishedName": [
-                      "CN=Fredrik Seebass,OU=mgusers,DC=labb3,DC=local"
+                      "CN=Fredrik Seebass,OU=mgusers,DC=mgad,DC=local"
                     ],
                     "sn": [
                       "Seebass"
@@ -184,7 +184,7 @@
                       "peso2"
                     ],
                     "distinguishedName": [
-                      "CN=peso2,OU=mgusers,DC=labb3,DC=local"
+                      "CN=peso2,OU=mgusers,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
@@ -200,299 +200,12 @@
                       "peso3"
                     ],
                     "distinguishedName": [
-                      "CN=peso3,OU=mgusers,DC=labb3,DC=local"
+                      "CN=peso3,OU=mgusers,DC=mgad,DC=local"
                     ]
                   },
                   "object_class": "person"
                 },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso4",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso4"
-                    ],
-                    "givenName": [
-                      "peso4"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso4,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso5",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso5"
-                    ],
-                    "givenName": [
-                      "peso5"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso5,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso6",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso6"
-                    ],
-                    "givenName": [
-                      "peso6"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso6,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso7",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso7"
-                    ],
-                    "givenName": [
-                      "peso7"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso7,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso8",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso8"
-                    ],
-                    "givenName": [
-                      "peso8"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso8,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso9",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso9"
-                    ],
-                    "givenName": [
-                      "peso9"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso9,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso10",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso10"
-                    ],
-                    "givenName": [
-                      "peso10"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso10,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso11",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso11"
-                    ],
-                    "givenName": [
-                      "peso11"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso11,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso12",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso12"
-                    ],
-                    "givenName": [
-                      "peso12"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso12,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso13",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso13"
-                    ],
-                    "givenName": [
-                      "peso13"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso13,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso14",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso14"
-                    ],
-                    "givenName": [
-                      "peso14"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso14,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso15",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso15"
-                    ],
-                    "givenName": [
-                      "peso15"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso15,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso16",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso16"
-                    ],
-                    "givenName": [
-                      "peso16"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso16,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso17",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso17"
-                    ],
-                    "givenName": [
-                      "peso17"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso17,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso18",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso18"
-                    ],
-                    "givenName": [
-                      "peso18"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso18,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso19",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso19"
-                    ],
-                    "givenName": [
-                      "peso19"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso19,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "peso20",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "peso20"
-                    ],
-                    "givenName": [
-                      "peso20"
-                    ],
-                    "distinguishedName": [
-                      "CN=peso20,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "annan",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "annan"
-                    ],
-                    "givenName": [
-                      "annan"
-                    ],
-                    "distinguishedName": [
-                      "CN=annan,OU=mgusers,DC=labb3,DC=local"
-                    ]
-                  },
-                  "object_class": "person"
-                },
+                
                 {
                   "rdn_type": "OU",
                   "rdn_value": "OneHourPwds",
@@ -851,31 +564,6 @@
                     ],
                     "sn": [
                       "Testgubbe"
-                    ]
-                  },
-                  "object_class": "person"
-                }
-              ]
-            },
-            {
-              "rdn_type": "OU",
-              "rdn_value": "Container med Mellanslag",
-              "children": [
-                {
-                  "rdn_type": "CN",
-                  "rdn_value": "Lasse Oumellanslag",
-                  "attributes": {
-                    "sAMAccountName": [
-                      "lasse"
-                    ],
-                    "givenName": [
-                      "Lasse"
-                    ],
-                    "distinguishedName": [
-                      "CN=Lasse Oumellanslag,OU=Container med Mellanslag,DC=labb3,DC=local"
-                    ],
-                    "sn": [
-                      "Oumellanslag"
                     ]
                   },
                   "object_class": "person"

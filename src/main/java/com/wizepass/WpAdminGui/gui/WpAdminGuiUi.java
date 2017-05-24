@@ -74,6 +74,7 @@ public class WpAdminGuiUi extends UI {
     private String valueAuthHeader;
     private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
     private String strSearch;
+    private TreeTableFactory treeTableFactory;
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -110,21 +111,17 @@ public class WpAdminGuiUi extends UI {
 
     // create user db api.
     private void createUserDbApiTab() {
-        buttonCreateRegToken.setEnabled(false);
-  
-        
-        final JSONObject jsonObj = controller.getAllUserLabb3();
-        //final JSONObject jsonObj = controller.getTest();
-        
-        
-        final TreeTableFactory treeTableFactory = createTreeTable(jsonObj);
-        buttonCreateRegToken.setEnabled(true);
-        buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
         searchButtonOk.setVisible(true);
-        searchUsers();
         customerComboBox.setNullSelectionItemId(false);
         addCustomerInToComboBox();
+        final JSONObject db = controller.getAllUserMgad();
+        treeTableFactory = createTreeTable(db);
         mapSelected = getValueSelected();
+        buttonCreateRegToken.setEnabled(false);    
+        buttonCreateRegToken.setEnabled(true);
+        buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
+        searchUsers();
+
         buttonCreateRegToken.addClickListener(e -> {
             final Set<Integer> keySet = treeTableFactory.getPersons().keySet();
             System.err.println("Tree:" );
@@ -181,13 +178,29 @@ public class WpAdminGuiUi extends UI {
             dbComboBox.isImmediate();
             System.err.println(customerSelected);
             getDb();
-            dbSelected = (String) dbComboBox.getValue();
+            //dbSelected = (String) dbComboBox.getValue();
             mapSelected.put("CustomerSelected", customerSelected);
+            logger.log(Level.INFO, "Customer selected: " + customerSelected);
         });
+
         dbComboBox.addValueChangeListener(event -> {
+        	tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
             dbSelected = (String) dbComboBox.getValue();
             mapSelected.put("DbSelected", dbSelected);
-            System.err.println("Db selected " + dbSelected);
+            logger.log(Level.INFO, "Db selected: " + dbSelected);
+            if (dbSelected != null && dbSelected.equals("labb3")) {
+            	final JSONObject dbLabb3 = controller.getAllUserLabb3();
+            	//tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
+            	treeTableFactory = createTreeTable(dbLabb3);
+            	tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
+            }else {
+            	if (dbSelected != null && dbSelected.equals("mgad")) {
+                	final JSONObject dbMgad = controller.getAllUserMgad();
+                	//tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
+                	treeTableFactory = createTreeTable(dbMgad);
+                	tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
+                }
+            }
         });
         return mapSelected;
     }

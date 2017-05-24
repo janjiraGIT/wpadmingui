@@ -4,7 +4,7 @@ public class Constants {
 	public static final String LOCAL_JSON = "/Users/janjiraeriksson/code/workspace/WpAdminGui/wpadmingui/wpadmingui/jsonFile/";
 	public static final String ALL_USERS_LABB3 = LOCAL_JSON + "all_users_labb3.json";
 	public static final String TEST = LOCAL_JSON + "test.json";
-	public static final String ALL_USERS_MGAD = LOCAL_JSON + "all_user_mgad.json"; // there is no json 
+	public static final String ALL_USERS_MGAD = LOCAL_JSON + "all_users_mgad.json"; // there is no json 
     public static final String CUSTOMERS = LOCAL_JSON + "customer.json";
     public static final String DB_ANVI = LOCAL_JSON + "db_anvi.json";
     public static final String DB_MGAB = LOCAL_JSON + "db_mgab.json";
