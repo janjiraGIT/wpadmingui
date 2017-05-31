@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.json.JsonObject;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -22,14 +24,15 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import elemental.json.JsonObject;
+import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
 
 public class RestApiResponse {
 
-    private final static Logger logger = Logger.getLogger(RestApiResponse.class.getName());
+    private final Logger logger = Logger.getLogger(RestApiResponse.class.getName());
     private static Reader reader = null;
     private static JSONObject jsonObject = null;
     private static JSONArray jsonArray = null;
+    private static HttpClient client = HttpClientBuilder.create().build();
     
     public JSONObject loadLdapData(final String url)  {
     	try {		
@@ -86,10 +89,10 @@ public class RestApiResponse {
     /**
      * Post json body.
      */
-    public List<String> postData(final javax.json.JsonObject obj, final String postUrl) throws ClientProtocolException, IOException, ParseException {
-        final HttpPost httpPost = new HttpPost(postUrl);
+    public List<String> postData(final JsonObject obj, final String postUrl) throws ClientProtocolException, IOException, ParseException {
+        
+    	final HttpPost httpPost = new HttpPost(postUrl);
         final String jsonDataStr = obj.toString();
-        final HttpClient client = HttpClientBuilder.create().build();
         final List<String> list = new ArrayList<String>();
         StringEntity entity = new StringEntity(jsonDataStr, "UTF-8");
         entity.setContentType("application/json");
@@ -97,18 +100,34 @@ public class RestApiResponse {
         try {
         	HttpResponse response = client.execute(httpPost);
         	 int responseCode = response.getStatusLine().getStatusCode();
-             System.out.println("Add registrationtoken response: " + responseCode);
+             logger.log(Level.INFO, "Add registrationtoken response", responseCode);
              final BufferedReader reader = new BufferedReader(
                      new InputStreamReader(response.getEntity().getContent(),  "UTF-8"));
              String line = "";
              while ((line = reader.readLine()) != null) {
                  list.add(line);
+                 logger.log(Level.INFO, line);
              }
         }catch (Exception e){
         	e.getStackTrace();
-        	System.out.println("Could not get any response.There was an error connecting to http://localhost:8081/WpRest/users/registrationtokens");
+        	logger.log(Level.WARNING, "Could not get any response.There was an error connecting to http://localhost:8081/WpRest/users/registrationtokens",e.getStackTrace());
         }
 		return list;       
     }
-
-}
+    
+    public JSONObject findUser(final String url, final String user) throws ClientProtocolException, IOException{
+    	try {
+            final HttpGet requestGet = new HttpGet(url + user);
+            final HttpResponse response = client.execute(requestGet);
+            final BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(response.getEntity().getContent()));
+            final JSONParser jsonParser = new JSONParser();
+            jsonObject  = (JSONObject) jsonParser.parse(reader);
+        } catch (IOException e) {
+            logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, IOException, couldn't read the file ", e.getMessage());
+        } catch (ParseException e) {
+        	 logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, ParseException, couldn't read the file ", e.getMessage());
+        }
+        return jsonObject;
+    }
+ }

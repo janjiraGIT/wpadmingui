@@ -22,7 +22,6 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TextField;
@@ -116,7 +115,7 @@ public class WpAdminGuiUi extends UI {
         addCustomerInToComboBox();
         final JSONObject db = controller.getAllUserMgad();
         treeTableFactory = createTreeTable(db);
-        mapSelected = getValueSelected();
+        final Map<String, String> customerDbSelected = doSelected();
         buttonCreateRegToken.setEnabled(false);    
         buttonCreateRegToken.setEnabled(true);
         buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
@@ -143,7 +142,7 @@ public class WpAdminGuiUi extends UI {
                     System.err.println("DNS count : " + dnsCount);
                 }
             }
-            final Window regTokens = issueRegisToken.createRegistationTokenWindow(dnsCount,mapSelected,dbSelected,listOfDns);
+            final Window regTokens = issueRegisToken.createRegistationTokenWindow(dnsCount,customerDbSelected,dbSelected,listOfDns);
             addWindow(regTokens);
             System.out.println("list of DNS :" + listOfDns);
         });
@@ -155,28 +154,16 @@ public class WpAdminGuiUi extends UI {
         tabUserDbApi.setSpacing(true);
         tabsheet.addTab(tabUserDbApi, "UserDbApi");
     }
-    
-    private void searchUsers() {
-    	searchTextField.addValueChangeListener(event -> {
-    		strSearch = (String) event.getProperty().getValue();
-    		Notification.show(strSearch);	
-    	});
-    	searchButtonOk.addClickListener(event -> {
-    		logger.log(Level.INFO, "Request Log :" + strSearch);
-    		final JSONArray user = controller.getMgUsers(strSearch);
-    		logger.log(Level.INFO, "Response log :" + user);
-    	});
-    }
 
     /**
      * @Value of customerselected from CustomerCombobox.
      */
-    public Map<String, String> getValueSelected() {
+    public Map<String, String> doSelected() {
         customerComboBox.addValueChangeListener(event -> {
             customerSelected = (String) customerComboBox.getValue();
             dbComboBox.removeAllItems();
             dbComboBox.isImmediate();
-            System.err.println(customerSelected);
+            System.err.println("Customer Selected : " + customerSelected);
             getDb();
             //dbSelected = (String) dbComboBox.getValue();
             mapSelected.put("CustomerSelected", customerSelected);
@@ -192,31 +179,52 @@ public class WpAdminGuiUi extends UI {
             	final JSONObject dbLabb3 = controller.getAllUserLabb3();
             	//tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
             	treeTableFactory = createTreeTable(dbLabb3);
+            	searchUsers();
             	tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
             }else {
             	if (dbSelected != null && dbSelected.equals("mgad")) {
                 	final JSONObject dbMgad = controller.getAllUserMgad();
-                	//tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
                 	treeTableFactory = createTreeTable(dbMgad);
+                	searchUsers();
                 	tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
                 }
             }
         });
         return mapSelected;
     }
+    // http://127.0.0.1:8081/wpadminapi/v1/customers/anvi/userdbids/per 
+    
+    private void searchUsers() {
+    	searchTextField.addValueChangeListener(event -> {
+    		strSearch = (String) event.getProperty().getValue();
+    		Notification.show(strSearch);	
+    	});
+    	searchButtonOk.addClickListener(event -> {
+    		tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
+    		logger.log(Level.INFO, "Request Log :" + strSearch);
+    		
+    		final JSONObject user = controller.searchUser(strSearch);
+    		logger.log(Level.INFO, "Response log :" + user);
+    		if (user == null){
+    			Notification.show("Could not find user in database");
+    		}
+    		treeTableFactory = createTreeTable(user);
+    		tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
+    	});
+    }
 
     private void getDb() {
     	// TODO : needs to fix to pass a parameter instade pass "anvi"
         if ( customerSelected.equals("anvi")) {
             logger.log(Level.INFO, "Customer Selected: " + customerSelected.toString());
-            final JSONArray dbSkolan = controller.getGranskolanDb();
-            if (dbSkolan != null) {
-                for (int i = 0; i < dbSkolan.size(); i++) {
-                    dbComboBox.addItem(dbSkolan.get(i));
-                    dbComboBox.select(dbSkolan.get(0));
+            final JSONArray dbAnvi = controller.getAnviDb();
+            if (dbAnvi != null) {
+                for (int i = 0; i < dbAnvi.size(); i++) {
+                    dbComboBox.addItem(dbAnvi.get(i));
+                    dbComboBox.select(dbAnvi.get(0));
                     dbComboBox.setNullSelectionAllowed(false);
                 }
-                logger.log(Level.INFO, "DB anvi: " + dbSkolan);
+                logger.log(Level.INFO, "DB anvi: " + dbAnvi);
             }
         } else if ( customerSelected.equals("mgab")) {
             logger.log(Level.INFO, "Customer Selected: " + customerSelected.toString());

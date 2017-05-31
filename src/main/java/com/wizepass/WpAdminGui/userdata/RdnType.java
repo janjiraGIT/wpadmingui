@@ -4,7 +4,8 @@ public enum RdnType {
 	ROOT(RdnTypeParserRoot.class),
     DC(RdnTypeParserDC.class),
     OU(RdnTyperParserOu.class),
-    CN(RdnTypeParserCn.class);
+    CN(RdnTypeParserCn.class),
+	NONE(RdnTypeParserNone.class);
 
     private Class<RdnTypeParser> rndTypeClass;
     

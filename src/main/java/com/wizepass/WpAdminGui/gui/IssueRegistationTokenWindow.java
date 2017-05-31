@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.json.JsonObject;
 
@@ -50,6 +52,7 @@ public class IssueRegistationTokenWindow {
     private String timeValueStr = null;
     private String certProfileStr = null;
     private String providerStr = null;
+    private final Logger logger = Logger.getLogger(IssueRegistationTokenWindow.class.getName());
 
     /**
      * crate Registation Token window.
@@ -125,13 +128,15 @@ public class IssueRegistationTokenWindow {
             @Override
             public void buttonClick(final ClickEvent event) {
             	final JsonUtil jsonUtil = new JsonUtil();
-            	final JsonObject obj = jsonUtil.buildJsonObject(customer, userDb, listOfDns, dbSelected, dbSelected, dbSelected, dbSelected, userSelected);
+            	final JsonObject obj = jsonUtil.buildJsonObject(customer, userDb, listOfDns, descriptionValueStr, timeValueStr, certProfileStr, providerStr, userSelected);
             	
             	try {
             		final RestApiResponse restApiResponse = new RestApiResponse();
             		final List<String> dataPost = restApiResponse.postData(obj,Constants.URL_ADDRESS+Constants.WP_REST+Constants.REG_TOKENS );
             		final String data = dataPost.get(0);
             		final JSONObject jsonObj = new JsonUtil().createJsonObject(data);
+            		logger.log(Level.INFO, "Added new registation in database", jsonObj);
+            	
             		final Notification notification = new Notification(
             					
             						 "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"

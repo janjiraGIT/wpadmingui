@@ -43,35 +43,44 @@ public class TreeTableFactory {
         // create root elem
         final Map<String, String> rootAttributes = new LinkedHashMap<String, String>();
         final int rootItemId = this.nextItemId++;
-
-        // get Node type
-        final String nodeTypeStr = (String) jsonObj.get(RDN_TYPE_STR);
-        final RdnType nodeType = RdnType.valueOf(nodeTypeStr.toUpperCase());
-        rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
-        final RdnTypeParser nodeParser = nodeType.getParser();
-        nodeParser.parseNodeData(jsonObj, rootAttributes);
-
-        final String nodeTypeValue = (String) jsonObj.get(RDN_VALUE);
-        rootAttributes.put(RDN_VALUE, nodeTypeValue);
-
-        // add Items to Treeview
-        Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
-        tmpTreeTable.addItem(rootItems, rootItemId);
-
-        // parse children
-        final List<CheckBox> rootChildrenCheckBoxes =
-                this.parseChildren(tmpTreeTable, jsonObj, rootItemId);
-
-        // First item is always the checkbox!
-        final CheckBox rootCheckBox = (CheckBox) rootItems[0];
-        rootCheckBox.setImmediate(true);
-        rootCheckBox.addValueChangeListener(e -> {
-            for (CheckBox child : rootChildrenCheckBoxes) {
-                child.setValue(rootCheckBox.getValue());
-            }
-        });
-
-        // reload of TreeTable done, set TreeTable pointers
+        
+        if (jsonObj.get(RDN_TYPE_STR) == null && jsonObj.get(RDN_VALUE)==null){
+        	final String nodeTypeStr = "None";
+        	final RdnType nodeType = RdnType.valueOf(nodeTypeStr);
+        	rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
+            final RdnTypeParser nodeParser = nodeType.getParser();
+            nodeParser.parseNodeData(jsonObj, rootAttributes);
+            JSONObject samn = (JSONObject) jsonObj.get("account_name");
+            rootAttributes.put(RDN_VALUE, (String) samn.get(0));
+            Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
+            tmpTreeTable.addItem(rootItems, rootItemId);
+        } else {
+          final String nodeTypeStr = (String) jsonObj.get(RDN_TYPE_STR);
+          final RdnType nodeType = RdnType.valueOf(nodeTypeStr.toUpperCase());
+          rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
+          final RdnTypeParser nodeParser = nodeType.getParser();
+          nodeParser.parseNodeData(jsonObj, rootAttributes);
+  
+          final String nodeTypeValue = (String) jsonObj.get(RDN_VALUE);
+          rootAttributes.put(RDN_VALUE, nodeTypeValue);
+  
+          // add Items to Treeview
+          Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
+          tmpTreeTable.addItem(rootItems, rootItemId);
+  
+          // parse children
+          final List<CheckBox> rootChildrenCheckBoxes =
+                  this.parseChildren(tmpTreeTable, jsonObj, rootItemId);
+  
+          // First item is always the checkbox!
+          final CheckBox rootCheckBox = (CheckBox) rootItems[0];
+          rootCheckBox.setImmediate(true);
+          rootCheckBox.addValueChangeListener(e -> {
+              for (CheckBox child : rootChildrenCheckBoxes) {
+                  child.setValue(rootCheckBox.getValue());
+              }
+          });
+        }
         this.persons = tmpPersons;
         this.treeTable = tmpTreeTable;
     }

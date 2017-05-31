@@ -1,5 +1,6 @@
 package com.wizepass.WpAdminGui.controller;
 
+
 import com.wizepass.WpAdminGui.response.RestApiResponse;
 import com.wizepass.WpAdminGui.util.Constants;
 
@@ -10,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataController {
-	//private static final Logger log = LoggerFactory.getLogger(DataController.class);
-    private final RestApiResponse httpClient = new RestApiResponse();
+	//public static final Logger log = (Logger) LoggerFactory.getLogger(DataController.class);
+    private final RestApiResponse restResponse = new RestApiResponse();
     private final List<String> timeList = new ArrayList<>();
     private JSONObject jsonObj;
     private JSONArray customers;
@@ -21,6 +22,7 @@ public class DataController {
     private JSONArray dbGskolan;
     private JSONArray regTokens;
     private JSONArray mgUsersPara;
+	private JSONObject userSearch = null;
     
 
     /**
@@ -28,7 +30,7 @@ public class DataController {
      */
     public JSONObject getAllUserLabb3() {
     	try {
-            jsonObj  = httpClient.loadLdapData(Constants.ALL_USERS_LABB3);
+            jsonObj  = restResponse.loadLdapData(Constants.ALL_USERS_LABB3);
         }   catch (Exception e) {
             e.getMessage();
            // log.error("DataController class , getAllUserLabb3 method is not correct. Check url again");
@@ -41,7 +43,7 @@ public class DataController {
      */
     public JSONObject getTest() {
     	try {
-            jsonObj  = httpClient.loadLdapData(Constants.TEST);
+            jsonObj  = restResponse.loadLdapData(Constants.TEST);
         }   catch (Exception e) {
             e.getMessage();
         }
@@ -54,7 +56,7 @@ public class DataController {
     // TODO : list is empty.
     public JSONObject getAllUserMgad() {
         try {
-            jsonObj  = httpClient.loadLdapData(Constants.ALL_USERS_MGAD);
+            jsonObj  = restResponse.loadLdapData(Constants.ALL_USERS_MGAD);
         }   catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getAllUserMgad method is not correct. Check url again ");
@@ -67,7 +69,7 @@ public class DataController {
      */
     public JSONArray getCustomers() {
         try {
-            customers = httpClient.getJsonArray(Constants.CUSTOMERS);
+            customers = restResponse.getJsonArray(Constants.CUSTOMERS);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getCustomer method is not correct. Check url again. ");
@@ -80,7 +82,7 @@ public class DataController {
      */
     public JSONArray getMgabDb() {
         try {
-            dbMgab = httpClient.getJsonArray(Constants.DB_MGAB);
+            dbMgab = restResponse.getJsonArray(Constants.DB_MGAB);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getMgabDb method is not correct. Check url again. ");
@@ -91,9 +93,9 @@ public class DataController {
     /**
      * list of Granskolan db.
      */
-    public JSONArray getGranskolanDb() {
+    public JSONArray getAnviDb() {
         try {
-            dbGskolan = httpClient.getJsonArray(Constants.DB_ANVI);
+            dbGskolan = restResponse.getJsonArray(Constants.DB_ANVI);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getGskolan method is not correct. Check url again. ");
@@ -106,7 +108,7 @@ public class DataController {
      */
     public JSONArray getProvider() {
         try {
-            provider = httpClient.getJsonArray(Constants.PROVIDER);
+            provider = restResponse.getJsonArray(Constants.PROVIDER);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getProvider method is not correct. Check url again. ");
@@ -119,7 +121,7 @@ public class DataController {
      */
     public JSONArray getCertProfile() {
         try {
-            certProfile = httpClient.getJsonArray(Constants.CERT_PROFILE);
+            certProfile = restResponse.getJsonArray(Constants.CERT_PROFILE);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
@@ -143,7 +145,7 @@ public class DataController {
      */
     public JSONArray getRegistrationtokens() {
         try {
-        	regTokens = httpClient.getJsonArray(Constants.REG_TOKEN);
+        	regTokens = restResponse.getJsonArray(Constants.REG_TOKEN);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
@@ -157,12 +159,23 @@ public class DataController {
      */
     public JSONArray getMgUsers(final String parameter) {
         try {
-        	mgUsersPara = httpClient.getJsonArray(Constants.USER_MG);
+        	mgUsersPara = restResponse.getJsonArray(Constants.USER_MG);
         } catch (Exception e) {
             e.getMessage();
             System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
         }
         return mgUsersPara;
+    }
+    
+    public JSONObject searchUser(final String name){
+    	//JSONObject userSearch = null;
+    	try {
+    		userSearch = restResponse.findUser(Constants.USER_SEARCH, name);
+    	}catch (Exception e){
+    		System.err.println("WARNING: DataController class , searchUser method is not correct. Check url again. ");
+    	}
+		return userSearch;
+    	
     }
     
 

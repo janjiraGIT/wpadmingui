@@ -13,9 +13,11 @@ public class Constants {
     public static final String REG_TOKEN = LOCAL_JSON + "reg_token.json";
     public static final String USER_MG = LOCAL_JSON + "users.json";
     
-    public static final String URL_ADDRESS = "http://localhost:8081";
-    public static final String WP_REST = "/WpRest/users/";
+    public static  String URL_ADDRESS = "http://localhost:8081";
+    public static String WP_REST = "/WpRest/users/";
     public static final String REG_TOKENS= "registrationtokens";
+    public static final String USER_SEARCH = "http://127.0.0.1:8081/WpRest/users/";
+	//public static final String USER_SEARCH = URL_ADDRESS+WP_REST;
     
     public static final String TOKEN = "Bearer 123";
 }
