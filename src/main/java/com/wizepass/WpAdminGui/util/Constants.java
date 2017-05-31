@@ -17,7 +17,9 @@ public class Constants {
     public static String WP_REST = "/WpRest/users/";
     public static final String REG_TOKENS= "registrationtokens";
     public static final String USER_SEARCH = "http://127.0.0.1:8081/WpRest/users/";
+    //http://127.0.0.1:8081/WpRest/users/registrationtokens
 	//public static final String USER_SEARCH = URL_ADDRESS+WP_REST;
+    //http://localhost:8081/WpRest/users/registrationtokens 
     
     public static final String TOKEN = "Bearer 123";
 }

@@ -24,8 +24,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
-
 public class RestApiResponse {
 
     private final Logger logger = Logger.getLogger(RestApiResponse.class.getName());
@@ -68,6 +66,26 @@ public class RestApiResponse {
 		return jsonArray;  	
     }
     
+//  public static  String URL_ADDRESS = "http://localhost:8081";
+//  public static String WP_REST = "/WpRest/users/";
+//  public static final String REG_TOKENS= "registrationtokens";
+    
+    public JSONArray getJsonArrayRegTokens(final String url_address, final String wp_rest, final String reg_token)  {
+    	try {
+            final HttpGet requestGet = new HttpGet(url_address + wp_rest+reg_token);
+            final HttpResponse response = client.execute(requestGet);
+            final BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(response.getEntity().getContent()));
+            final JSONParser jsonParser = new JSONParser();
+            jsonArray  = (JSONArray) jsonParser.parse(reader);
+        } catch (IOException e) {
+            logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, IOException, couldn't read the file ", e.getMessage());
+        } catch (ParseException e) {
+        	 logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, ParseException, couldn't read the file ", e.getMessage());
+        }
+        return jsonArray;
+    }
+    
     public JSONArray loadDataJsonArrayWithParametrs(final String url, final String parameter)  {
     	try {
     		// TODO: not correct to pass 2 parameters because url is json file 
@@ -85,7 +103,7 @@ public class RestApiResponse {
 		}
 		return jsonArray;  	
     }
-    
+
     /**
      * Post json body.
      */

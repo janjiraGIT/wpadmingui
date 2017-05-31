@@ -9,9 +9,11 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DataController {
-	//public static final Logger log = (Logger) LoggerFactory.getLogger(DataController.class);
+	private final Logger logger = Logger.getLogger(DataController.class.getName());
     private final RestApiResponse restResponse = new RestApiResponse();
     private final List<String> timeList = new ArrayList<>();
     private JSONObject jsonObj;
@@ -32,8 +34,8 @@ public class DataController {
     	try {
             jsonObj  = restResponse.loadLdapData(Constants.ALL_USERS_LABB3);
         }   catch (Exception e) {
-            e.getMessage();
-           // log.error("DataController class , getAllUserLabb3 method is not correct. Check url again");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
+            
         }
         return jsonObj;
     }
@@ -45,7 +47,7 @@ public class DataController {
     	try {
             jsonObj  = restResponse.loadLdapData(Constants.TEST);
         }   catch (Exception e) {
-            e.getMessage();
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return jsonObj;
     }
@@ -58,8 +60,7 @@ public class DataController {
         try {
             jsonObj  = restResponse.loadLdapData(Constants.ALL_USERS_MGAD);
         }   catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getAllUserMgad method is not correct. Check url again ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return jsonObj;
     }
@@ -71,8 +72,7 @@ public class DataController {
         try {
             customers = restResponse.getJsonArray(Constants.CUSTOMERS);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getCustomer method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return customers;
     }
@@ -84,8 +84,7 @@ public class DataController {
         try {
             dbMgab = restResponse.getJsonArray(Constants.DB_MGAB);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getMgabDb method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return dbMgab;
     }
@@ -97,8 +96,7 @@ public class DataController {
         try {
             dbGskolan = restResponse.getJsonArray(Constants.DB_ANVI);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getGskolan method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return dbGskolan;
     }
@@ -110,8 +108,7 @@ public class DataController {
         try {
             provider = restResponse.getJsonArray(Constants.PROVIDER);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getProvider method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return provider;
     }
@@ -123,8 +120,7 @@ public class DataController {
         try {
             certProfile = restResponse.getJsonArray(Constants.CERT_PROFILE);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return certProfile;
     }
@@ -140,15 +136,26 @@ public class DataController {
         timeList.add("P1M");//Month
         return timeList;
     }
+//    /**
+//     * list of Users.
+//     */
+//    public JSONArray getRegistrationtokens() {
+//        try {
+//        	regTokens = restResponse.getJsonArray(Constants.REG_TOKEN);
+//        } catch (Exception e) {
+//            e.getMessage();
+//            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+//        }
+//        return regTokens;
+//    }
     /**
      * list of Users.
      */
     public JSONArray getRegistrationtokens() {
         try {
-        	regTokens = restResponse.getJsonArray(Constants.REG_TOKEN);
+        	regTokens = restResponse.getJsonArrayRegTokens(Constants.URL_ADDRESS, Constants.WP_REST,Constants.REG_TOKENS);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return regTokens;
     }
@@ -161,8 +168,7 @@ public class DataController {
         try {
         	mgUsersPara = restResponse.getJsonArray(Constants.USER_MG);
         } catch (Exception e) {
-            e.getMessage();
-            System.err.println("WARNING: DataController class , getCertProfile method is not correct. Check url again. ");
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
         }
         return mgUsersPara;
     }
@@ -172,7 +178,7 @@ public class DataController {
     	try {
     		userSearch = restResponse.findUser(Constants.USER_SEARCH, name);
     	}catch (Exception e){
-    		System.err.println("WARNING: DataController class , searchUser method is not correct. Check url again. ");
+    		logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
     	}
 		return userSearch;
     	

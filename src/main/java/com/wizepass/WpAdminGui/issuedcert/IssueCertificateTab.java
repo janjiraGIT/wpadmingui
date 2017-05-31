@@ -32,8 +32,8 @@ public class IssueCertificateTab {
         final TreeTable treeTableInIssueCertificate = new TreeTable();
         treeTableInIssueCertificate.addContainerProperty("Data ", String.class, null);
         treeTableInIssueCertificate.addStyleName(ValoTheme.TREETABLE_NO_STRIPES);
-        final JSONArray jsonArrayTest = dataController.getRegistrationtokens();
-        createTreeTable(jsonArrayTest, treeTableInIssueCertificate);
+        final JSONArray jsonArrayReg = dataController.getRegistrationtokens();
+        createTreeTable(jsonArrayReg, treeTableInIssueCertificate);
         treeTableInIssueCertificate.setWidth("80%");
         buttonOk.addStyleName(ValoTheme.BUTTON_FRIENDLY);
         buttonRemove.addStyleName(ValoTheme.BUTTON_DANGER);
@@ -50,12 +50,13 @@ public class IssueCertificateTab {
     /**
      * Data test in tree table.
      **/
-    public void createTreeTable(final JSONArray jsonArrayTest , final TreeTable treetable) {
+    public void createTreeTable(final JSONArray jsonArrayReg , final TreeTable treeTableInIssueCertificate) {
         int row = 0;
-        for (int i = 0; i < jsonArrayTest.size(); i++) {
-            final JSONObject jsonObj = (JSONObject) jsonArrayTest.get(i);
+        for (int i = 0; i < jsonArrayReg.size(); i++) {
+            final JSONObject jsonObj = (JSONObject) jsonArrayReg.get(i);
             final String regCode = (String) jsonObj.get("registration_code");
-            treetable.addItem(new Object[] {regCode}, row );
+            final String customerId = (String) jsonObj.get("customer_id");
+            treeTableInIssueCertificate.addItem(new Object[] {regCode,customerId}, row );
             row++;
         }
     }
