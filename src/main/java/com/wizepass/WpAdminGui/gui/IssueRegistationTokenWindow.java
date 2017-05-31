@@ -23,6 +23,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,6 +109,11 @@ public class IssueRegistationTokenWindow {
             providerCombobox.addItem(providerJsonArray.get(i));
         }
     }
+    public String nextSessionId() {
+       SecureRandom random = new SecureRandom();
+       logger.log(Level.INFO, "regis_code : " ,random);
+       return new BigInteger(130, random).toString(32);
+   }
 
     /**
      * create pop up window.
@@ -124,12 +133,15 @@ public class IssueRegistationTokenWindow {
         });
         final String customer = mapSelected.get("CustomerSelected").toString();
         final String userDb = mapSelected.get("DbSelected");
+    	final Date date = new Date();
+    	final String newDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+    	String randomId = nextSessionId();
+
         okButton.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(final ClickEvent event) {
             	final JsonUtil jsonUtil = new JsonUtil();
-            	final JsonObject obj = jsonUtil.buildJsonObject(customer, userDb, listOfDns, descriptionValueStr, timeValueStr, certProfileStr, providerStr, userSelected);
-            	
+            	final JsonObject obj = jsonUtil.buildJsonObject(randomId, newDate,customer, userDb, listOfDns, descriptionValueStr, timeValueStr, certProfileStr, providerStr, userSelected);          	
             	try {
             		final RestApiResponse restApiResponse = new RestApiResponse();
             		final List<String> dataPost = restApiResponse.postData(obj,Constants.URL_ADDRESS+Constants.WP_REST+Constants.REG_TOKENS );
@@ -166,5 +178,6 @@ public class IssueRegistationTokenWindow {
                 window.close();
             }
         });
+    	  
     }
 }

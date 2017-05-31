@@ -29,10 +29,14 @@ public class RegistationTokenTab {
         final Button buttonDelete = new Button("Delete Token");
         treeTableTabReg.addContainerProperty("Registation_code", String.class, null);
         treeTableTabReg.addContainerProperty("Customer_id", String.class, null);
+        treeTableTabReg.addContainerProperty("Registation_date", String.class, null);
+        treeTableTabReg.addContainerProperty("Description", String.class, null);
         final DataController datacontroller = new DataController();
         try {
-            final JSONArray regTokenArray = datacontroller.getRegistrationtokens();
+            final JSONArray regTokenArray = datacontroller.getRegistrationtokens();   
+            layoutTab2.removeComponent(treeTableTabReg);
             createTreeTable(regTokenArray, treeTableTabReg);
+            layoutTab2.addComponents(treeTableTabReg,layoutForButton);
         } catch (Exception e) {
         	logger.log(Level.WARNING, "Something went wrong with connection" + e.getStackTrace());
         }
@@ -44,7 +48,6 @@ public class RegistationTokenTab {
         layoutForButton.setWidth("70%");
         layoutTab2.setMargin(true);
         layoutTab2.setSpacing(true);
-        layoutTab2.addComponents(treeTableTabReg,layoutForButton);
         tabsheet.addTab(layoutTab2, "Registation Token");
     }
     
@@ -53,11 +56,14 @@ public class RegistationTokenTab {
      **/
     public void createTreeTable(final JSONArray jsonArrayReg , final TreeTable treeTableInIssueCertificate) {
         int row = 0;
+        treeTableInIssueCertificate.removeAllItems();
         for (int i = 0; i < jsonArrayReg.size(); i++) {
             final JSONObject jsonObj = (JSONObject) jsonArrayReg.get(i);
             final String regCode = (String) jsonObj.get("registration_code");
             final String customerId = (String) jsonObj.get("customer_id");
-            treeTableInIssueCertificate.addItem(new Object[] {regCode,customerId}, row );
+            final String regDate = (String) jsonObj.get("date");
+            final String description = (String) jsonObj.get("description");
+            treeTableInIssueCertificate.addItem(new Object[] {regCode,customerId,regDate,description}, row );
             row++;
         }
     }

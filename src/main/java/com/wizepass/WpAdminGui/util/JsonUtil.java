@@ -16,6 +16,8 @@ import com.google.gson.JsonParser;
 
 public class JsonUtil {
     public static final String DESCRIPTION = "description";
+    public static final String REGISTRATION_CODE = "registration_code";
+    public static final String DATE = "date";
     public static final String PROVIDER_ID = "provider_id";
     public static final String END_USER_DNS = "end_user_dns";
     public static final String USER_DB_ID = "userdb_id";
@@ -26,11 +28,13 @@ public class JsonUtil {
     /**
      * Build Json body for send a request to add registration tokens.
      **/
-	public JsonObject  buildJsonObject(final String customer, final String userDb,final List<String> listOfDns,
+	public JsonObject  buildJsonObject(final String randomId, final String date,final String customer, final String userDb,final List<String> listOfDns,
 												            final String descriptionValueStr, final String timeValueStr,
 												            final String certProfileStr, final String providerStr, final int userSelected ) {
 				final JsonArrayBuilder jarray = buildJsonArrayFromList(listOfDns);
 				final JsonObject jsonObj = Json.createObjectBuilder()
+														.add(REGISTRATION_CODE, randomId)
+														.add(DATE, date)
 												        .add(DESCRIPTION, descriptionValueStr)
 												        .add(CUSTOMER_ID, customer)
 												        .add(PROVIDER_ID, providerStr)
