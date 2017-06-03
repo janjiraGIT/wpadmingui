@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.json.JsonObject;
 import javax.servlet.annotation.WebServlet;
 
 import org.json.simple.JSONArray;
@@ -36,6 +38,7 @@ import com.wizepass.WpAdminGui.gui.TokenGui;
 import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
 import com.wizepass.WpAdminGui.userdata.TreeTableFactory;
 import com.wizepass.WpAdminGui.util.Constants;
+import com.wizepass.WpAdminGui.util.JsonUtil;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -74,6 +77,7 @@ public class WpAdminGuiUi extends UI {
     private final Logger logger = Logger.getLogger(WpAdminGuiUi.class.getName());
     private String strSearch;
     private TreeTableFactory treeTableFactory;
+    JSONObject userObj = null;
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -194,7 +198,7 @@ public class WpAdminGuiUi extends UI {
     }
     // http://127.0.0.1:8081/wpadminapi/v1/customers/anvi/userdbids/per 
     
-    private void searchUsers() {
+    private void searchUsers() {	
     	searchTextField.addValueChangeListener(event -> {
     		strSearch = (String) event.getProperty().getValue();
     		Notification.show(strSearch);	
@@ -202,13 +206,16 @@ public class WpAdminGuiUi extends UI {
     	searchButtonOk.addClickListener(event -> {
     		tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
     		logger.log(Level.INFO, "Request Log :" + strSearch);
-    		
-    		final JSONObject user = controller.searchUser(strSearch);
-    		logger.log(Level.INFO, "Response log :" + user);
-    		if (user == null){
-    			Notification.show("Could not find user in database");
+    		try {
+    			JSONArray userArray = controller.searchUser(strSearch);
+        		logger.log(Level.INFO, "Response Array log  :" + userArray.toString());   
+        		JsonUtil jsonUtil = new JsonUtil();
+        		JsonObject userObj = (JsonObject) jsonUtil.buildJsonObjectFromSearchingUser(userArray);
+        		logger.log(Level.INFO, "Response Object log  :" + userObj.toString());
+    		}catch (Exception e){
+    			logger.log(Level.WARNING, "Something went wrong with json array " , e.getStackTrace());			
     		}
-    		treeTableFactory = createTreeTable(user);
+    		treeTableFactory = createTreeTable(userObj);
     		tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
     	});
     }

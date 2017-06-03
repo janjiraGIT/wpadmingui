@@ -133,19 +133,21 @@ public class RestApiResponse {
 		return list;       
     }
     
-    public JSONObject findUser(final String url, final String user) throws ClientProtocolException, IOException{
+    public JSONArray findUser(final String url, final String user) throws ClientProtocolException, IOException{
+    	JSONArray jsonArray = null;
     	try {
             final HttpGet requestGet = new HttpGet(url + user);
             final HttpResponse response = client.execute(requestGet);
             final BufferedReader reader = new BufferedReader(
                     new InputStreamReader(response.getEntity().getContent()));
             final JSONParser jsonParser = new JSONParser();
-            jsonObject  = (JSONObject) jsonParser.parse(reader);
+            
+            jsonArray  = (JSONArray) jsonParser.parse(reader);
         } catch (IOException e) {
-            logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, IOException, couldn't read the file ", e.getMessage());
+            logger.log(Level.WARNING,"Couldn't read the file, check Rest api server again ", e.getStackTrace());
         } catch (ParseException e) {
-        	 logger.log(Level.WARNING,"loadDataJsonArrayWithParamers method, ParseException, couldn't read the file ", e.getMessage());
+        	 logger.log(Level.WARNING,"ParseException error ", e.getStackTrace());
         }
-        return jsonObject;
+        return jsonArray;
     }
  }

@@ -4,8 +4,10 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
+import javax.json.JsonValue;
 
 import org.apache.http.ParseException;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
@@ -31,7 +33,7 @@ public class JsonUtil {
 	public JsonObject  buildJsonObject(final String randomId, final String date,final String customer, final String userDb,final List<String> listOfDns,
 												            final String descriptionValueStr, final String timeValueStr,
 												            final String certProfileStr, final String providerStr, final int userSelected ) {
-				final JsonArrayBuilder jarray = buildJsonArrayFromList(listOfDns);
+				//final JsonArrayBuilder jarray = buildJsonArrayFromList(listOfDns);
 				final JsonObject jsonObj = Json.createObjectBuilder()
 														.add(REGISTRATION_CODE, randomId)
 														.add(DATE, date)
@@ -47,6 +49,28 @@ public class JsonUtil {
 				return jsonObj;	
 	}
 	
+    /**
+     * Build JSON Object from json array.
+     **/
+	public JsonObject  buildJsonObjectFromSearchingUser(final JSONArray jsonArray ) {
+		String company_id =null;
+		JsonObject attributes =null;
+		JsonValue gvname = null ;
+		JsonValue surname = null ;
+		for (int i = 0; i < jsonArray.size(); i++) {
+			final JSONObject jsonObj = (JSONObject) jsonArray.get(i);
+			//company_id = (String) jsonObj.get("Company_id");
+			attributes = (JsonObject) jsonObj.get("attributes");
+			gvname = attributes.get("given_name");
+			surname =attributes.get("sur_name");
+		}	
+		JsonObject jsonObj = (JsonObject) Json.createObjectBuilder()
+									.add("given_name",gvname )
+									.add("sur_name",surname)
+									.build();
+				
+		return jsonObj;	
+	}
 	/**
      * crate JsonArry from List.
      **/

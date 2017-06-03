@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 public class TokenGui {
     final Window window = new Window();
-    final Label textToken = new Label("Token");
+    final Label textToken = new Label("Password");
     final PasswordField pw = new PasswordField();
     final Button okButton = new Button("ok");
     final Button cancelButton = new Button("cancel");

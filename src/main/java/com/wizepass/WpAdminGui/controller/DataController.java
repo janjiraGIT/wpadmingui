@@ -24,7 +24,7 @@ public class DataController {
     private JSONArray dbGskolan;
     private JSONArray regTokens;
     private JSONArray mgUsersPara;
-	private JSONObject userSearch = null;
+
     
 
     /**
@@ -161,9 +161,10 @@ public class DataController {
         return mgUsersPara;
     }
     
-    public JSONObject searchUser(final String name){
-    	//JSONObject userSearch = null;
+    public JSONArray searchUser(final String name){
+    	JSONArray userSearch = null;
     	try {
+    		//http://localhost:8081/WpRest/users/peso
     		userSearch = restResponse.findUser(Constants.USER_SEARCH, name);
     	}catch (Exception e){
     		logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
