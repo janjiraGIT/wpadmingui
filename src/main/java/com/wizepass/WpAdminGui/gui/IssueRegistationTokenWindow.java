@@ -131,6 +131,8 @@ public class IssueRegistationTokenWindow {
         providerCombobox.addValueChangeListener(event -> {
             providerStr = (String) event.getProperty().getValue();
         });
+        
+        // Bug click create button with out choose customer or database need to fix. 
         final String customer = mapSelected.get("CustomerSelected").toString();
         final String userDb = mapSelected.get("DbSelected");
     	final Date date = new Date();

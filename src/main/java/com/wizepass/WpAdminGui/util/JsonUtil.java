@@ -4,7 +4,7 @@ import java.util.List;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
-import javax.json.JsonValue;
+
 
 import org.apache.http.ParseException;
 import org.json.simple.JSONArray;
@@ -26,6 +26,10 @@ public class JsonUtil {
     public static final String RT_VALID_DURATION = "rt_valid_duration";
     public static final String CERT_PROFILE_ID = "cert_profile_id";
     private static final String CUSTOMER_ID = "customer_id";
+    private String gvname;
+    private String surname;
+    private String aname;
+    private JsonObject jsonObj= null;
 
     /**
      * Build Json body for send a request to add registration tokens.
@@ -53,18 +57,15 @@ public class JsonUtil {
      * Build JSON Object from json array.
      **/
 	public JsonObject  buildJsonObjectFromSearchingUser(final JSONArray jsonArray ) {
-		String company_id =null;
-		JsonObject attributes =null;
-		JsonValue gvname = null ;
-		JsonValue surname = null ;
 		for (int i = 0; i < jsonArray.size(); i++) {
-			final JSONObject jsonObj = (JSONObject) jsonArray.get(i);
-			//company_id = (String) jsonObj.get("Company_id");
-			attributes = (JsonObject) jsonObj.get("attributes");
-			gvname = attributes.get("given_name");
-			surname =attributes.get("sur_name");
+			final JSONObject jsonObj = (JSONObject) jsonArray.get(i);			
+			final JSONObject attributes = (JSONObject) jsonObj.get("attributes");
+			aname = (String) attributes.get("account_name");
+			gvname = (String)attributes.get("given_name");
+			surname =(String)attributes.get("sur_name");
 		}	
-		JsonObject jsonObj = (JsonObject) Json.createObjectBuilder()
+		jsonObj = (JsonObject)Json.createObjectBuilder()
+									.add("account_name", aname)
 									.add("given_name",gvname )
 									.add("sur_name",surname)
 									.build();

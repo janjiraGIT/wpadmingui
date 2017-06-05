@@ -9,12 +9,16 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.json.JsonException;
 import javax.json.JsonObject;
 import javax.servlet.annotation.WebServlet;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import com.google.gson.JsonParser;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Item;
@@ -124,7 +128,6 @@ public class WpAdminGuiUi extends UI {
         buttonCreateRegToken.setEnabled(true);
         buttonCreateRegToken.addStyleName(ValoTheme.BUTTON_FRIENDLY);
         searchUsers();
-
         buttonCreateRegToken.addClickListener(e -> {
             final Set<Integer> keySet = treeTableFactory.getPersons().keySet();
             System.err.println("Tree:" );
@@ -211,12 +214,18 @@ public class WpAdminGuiUi extends UI {
         		logger.log(Level.INFO, "Response Array log  :" + userArray.toString());   
         		JsonUtil jsonUtil = new JsonUtil();
         		JsonObject userObj = (JsonObject) jsonUtil.buildJsonObjectFromSearchingUser(userArray);
-        		logger.log(Level.INFO, "Response Object log  :" + userObj.toString());
-    		}catch (Exception e){
-    			logger.log(Level.WARNING, "Something went wrong with json array " , e.getStackTrace());			
-    		}
-    		treeTableFactory = createTreeTable(userObj);
-    		tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
+        		String userStr = userObj.toString();
+        		JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
+        		// TODO : CREATE A NEW TABLE HERE INSTADE 
+        		treeTableFactory = createTreeTable(userOBJ);
+        		tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
+        		logger.log(Level.INFO, "Response Object log  :" + userOBJ.toString());
+    		}catch (JsonException e){
+    			logger.log(Level.WARNING, "Something went wrong ", e.getStackTrace());			
+    		} catch (ParseException e) {
+    			logger.log(Level.WARNING, "ParserException ", e.getStackTrace());	
+			}
+    		
     	});
     }
 
@@ -271,7 +280,7 @@ public class WpAdminGuiUi extends UI {
             treeTableFactory.getTreeTable().setColumnExpandRatio((Object) "LDAP Tree", 1.0f);
             treeTableFactory.getTreeTable().setColumnExpandRatio( "DNS", 1.0f);
         } catch (Exception e) {
-            logger.log(Level.WARNING, " Http response error , please check url again ", e.getMessage());
+            logger.log(Level.WARNING, " Http response error , please check url again ", e.getStackTrace());
         }
         return treeTableFactory;
     }

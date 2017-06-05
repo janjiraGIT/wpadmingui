@@ -2,6 +2,7 @@ package com.wizepass.WpAdminGui.userdata;
 
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.TreeTable;
+import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,12 +12,18 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.json.JsonException;
+import javax.json.JsonObject;
 
 public class TreeTableFactory {
 
     private static final String RDN_TYPE_STR = "rdn_type";
     private static final String RDN_VALUE = "rdn_value";
     private static final String CHILDREN = "children";
+    private JSONObject samn;
 
     private TreeTable treeTable = new TreeTable();
 
@@ -26,6 +33,7 @@ public class TreeTableFactory {
     // connects a TreeTable Id with a person attributes, used for generating Wizepass cert requests.
     private Map<Integer, Map<String, String>> persons = new HashMap<>();
     private Map<Integer, Map<String, String>> tmpPersons;
+    private final Logger logger = Logger.getLogger(TreeTableFactory.class.getName());
 
     /**
      * Creates a TreeTable of user database data (LDAP).
@@ -45,15 +53,31 @@ public class TreeTableFactory {
         final int rootItemId = this.nextItemId++;
         
         if (jsonObj.get(RDN_TYPE_STR) == null && jsonObj.get(RDN_VALUE)==null){
-        	final String nodeTypeStr = "None";
-        	final RdnType nodeType = RdnType.valueOf(nodeTypeStr);
-        	rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
-            final RdnTypeParser nodeParser = nodeType.getParser();
-            nodeParser.parseNodeData(jsonObj, rootAttributes);
-            JSONObject samn = (JSONObject) jsonObj.get("account_name");
-            rootAttributes.put(RDN_VALUE, (String) samn.get(0));
-            Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
-            tmpTreeTable.addItem(rootItems, rootItemId);
+//        	final String nodeTypeStr = "NONE";
+//        	final RdnType nodeType = RdnType.valueOf(nodeTypeStr);
+//        	rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
+//            final RdnTypeParser nodeParser = nodeType.getParser();
+//            nodeParser.parseNodeData(jsonObj, rootAttributes);
+//            try {
+//                samn = (JSONObject) jsonObj.get("account_name");
+//            } catch (JsonException e){
+//            	logger.log(Level.WARNING, "Something went wrong ", e.getStackTrace());	
+//            }
+//
+//            rootAttributes.put(RDN_VALUE, (String) samn.get(0));
+//            Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
+//            tmpTreeTable.addItem(rootItems, rootItemId);
+        	tmpTreeTable.removeAllActionHandlers();
+        	tmpTreeTable.addContainerProperty("account name", String.class, null);
+        	tmpTreeTable.addContainerProperty("given name", String.class, null);
+        	tmpTreeTable.addContainerProperty("sur name", String.class, null);
+        	final String aname = (String) jsonObj.get("account_name");
+        	final String gname = (String) jsonObj.get("given_name");
+        	final String sname = (String) jsonObj.get("sur_name");
+        	tmpTreeTable.setImmediate(true);
+        	tmpTreeTable.addItem(new Object[]{aname,gname,sname});
+        	
+        	
         } else {
           final String nodeTypeStr = (String) jsonObj.get(RDN_TYPE_STR);
           final RdnType nodeType = RdnType.valueOf(nodeTypeStr.toUpperCase());
