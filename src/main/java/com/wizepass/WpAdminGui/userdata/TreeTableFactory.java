@@ -1,6 +1,7 @@
 package com.wizepass.WpAdminGui.userdata;
 
 import com.vaadin.ui.CheckBox;
+import com.vaadin.ui.Table;
 import com.vaadin.ui.TreeTable;
 import com.wizepass.WpAdminGui.gui.WpAdminGuiUi;
 
@@ -24,8 +25,12 @@ public class TreeTableFactory {
     private static final String RDN_VALUE = "rdn_value";
     private static final String CHILDREN = "children";
     private JSONObject samn;
+//	String aname = null;
+//	String gname = null;
+//	String sname = null;
 
     private TreeTable treeTable = new TreeTable();
+    Table searchTable = new Table();
 
     // counter for current itemId to add to TreeList
     private int nextItemId = 0;
@@ -35,6 +40,24 @@ public class TreeTableFactory {
     private Map<Integer, Map<String, String>> tmpPersons;
     private final Logger logger = Logger.getLogger(TreeTableFactory.class.getName());
 
+    public Table createNewTableForSearch(JSONObject userObj){
+
+    	searchTable.setSelectable(true);
+    	searchTable.addContainerProperty("account name", String.class, null);
+    	searchTable.addContainerProperty("given name", String.class, null);
+    	searchTable.addContainerProperty("sur name", String.class, null);
+    	final String aname =  (String) userObj.get("account_name");
+    	final String gname =  (String) userObj.get("given_name");
+    	final String sname =  (String) userObj.get("sur_name");
+    	searchTable.setImmediate(true);
+    	// TODO : can search user and create new table but can not show data on table?
+    	searchTable.addItem(new Object[]{aname,gname,sname, 1});    	
+    	//searchTable.addItem(new Object[] {"one","two","tree"},1);
+    	searchTable.setWidth("80%");
+		return searchTable;
+    	
+    	
+    }
     /**
      * Creates a TreeTable of user database data (LDAP).
      */
@@ -53,20 +76,6 @@ public class TreeTableFactory {
         final int rootItemId = this.nextItemId++;
         
         if (jsonObj.get(RDN_TYPE_STR) == null && jsonObj.get(RDN_VALUE)==null){
-//        	final String nodeTypeStr = "NONE";
-//        	final RdnType nodeType = RdnType.valueOf(nodeTypeStr);
-//        	rootAttributes.put(RDN_TYPE_STR, nodeTypeStr);
-//            final RdnTypeParser nodeParser = nodeType.getParser();
-//            nodeParser.parseNodeData(jsonObj, rootAttributes);
-//            try {
-//                samn = (JSONObject) jsonObj.get("account_name");
-//            } catch (JsonException e){
-//            	logger.log(Level.WARNING, "Something went wrong ", e.getStackTrace());	
-//            }
-//
-//            rootAttributes.put(RDN_VALUE, (String) samn.get(0));
-//            Object[] rootItems = addNodeAttributes(rootAttributes, rootItemId);
-//            tmpTreeTable.addItem(rootItems, rootItemId);
         	tmpTreeTable.removeAllActionHandlers();
         	tmpTreeTable.addContainerProperty("account name", String.class, null);
         	tmpTreeTable.addContainerProperty("given name", String.class, null);
@@ -112,6 +121,7 @@ public class TreeTableFactory {
     public TreeTable getTreeTable() {
         return this.treeTable;
     }
+
 
     public Map<Integer, Map<String, String>> getPersons() {
         return this.persons;

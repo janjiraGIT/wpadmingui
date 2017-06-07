@@ -41,6 +41,19 @@ public class DataController {
     }
     
     /**
+     * get empty object
+     */
+    public JSONObject getObjectEmpty() {
+    	try {
+            jsonObj  = restResponse.loadLdapData(Constants.OBJ_EMPTY);
+        }   catch (Exception e) {
+        	logger.log(Level.WARNING,"Something went wrong check url again", e.getStackTrace());
+            
+        }
+        return jsonObj;
+    }
+    
+    /**
      * list of all users.
      */
     public JSONObject getTest() {

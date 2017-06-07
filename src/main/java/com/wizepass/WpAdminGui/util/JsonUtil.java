@@ -1,6 +1,9 @@
 package com.wizepass.WpAdminGui.util;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
@@ -15,6 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import com.wizepass.WpAdminGui.gui.RegistationTokenTab;
 
 public class JsonUtil {
     public static final String DESCRIPTION = "description";
@@ -30,6 +34,7 @@ public class JsonUtil {
     private String surname;
     private String aname;
     private JsonObject jsonObj= null;
+    private final Logger logger = Logger.getLogger(JsonUtil.class.getName());
 
     /**
      * Build Json body for send a request to add registration tokens.
@@ -64,12 +69,12 @@ public class JsonUtil {
 			gvname = (String)attributes.get("given_name");
 			surname =(String)attributes.get("sur_name");
 		}	
-		jsonObj = (JsonObject)Json.createObjectBuilder()
-									.add("account_name", aname)
-									.add("given_name",gvname )
-									.add("sur_name",surname)
-									.build();
-				
+			jsonObj = (JsonObject)Json.createObjectBuilder()
+					.add("account_name", aname)
+					.add("given_name",gvname )
+					.add("sur_name",surname)
+					.build();
+		
 		return jsonObj;	
 	}
 	/**

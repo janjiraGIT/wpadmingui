@@ -13,6 +13,7 @@ import javax.json.JsonException;
 import javax.json.JsonObject;
 import javax.servlet.annotation.WebServlet;
 
+import org.elasticsearch.common.Table;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -27,6 +28,7 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.ComboBox;
+import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TabSheet;
@@ -59,7 +61,7 @@ public class WpAdminGuiUi extends UI {
     final HorizontalLayout searchLayout = new HorizontalLayout();
     final VerticalLayout tabUserDbApi = new VerticalLayout();
     final TabSheet tabsheet = new TabSheet();
-    final Button buttonCreateRegToken = new Button("Create Issue Registation Tokens");
+    final Button buttonCreateRegToken = new Button("Create Issue Registration Tokens");
     final ComboBox customerComboBox = new ComboBox();
     final ComboBox dbComboBox = new ComboBox();
     final TextField searchTextField = new TextField();
@@ -172,7 +174,6 @@ public class WpAdminGuiUi extends UI {
             dbComboBox.isImmediate();
             System.err.println("Customer Selected : " + customerSelected);
             getDb();
-            //dbSelected = (String) dbComboBox.getValue();
             mapSelected.put("CustomerSelected", customerSelected);
             logger.log(Level.INFO, "Customer selected: " + customerSelected);
         });
@@ -184,7 +185,6 @@ public class WpAdminGuiUi extends UI {
             logger.log(Level.INFO, "Db selected: " + dbSelected);
             if (dbSelected != null && dbSelected.equals("labb3")) {
             	final JSONObject dbLabb3 = controller.getAllUserLabb3();
-            	//tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
             	treeTableFactory = createTreeTable(dbLabb3);
             	searchUsers();
             	tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
@@ -199,7 +199,6 @@ public class WpAdminGuiUi extends UI {
         });
         return mapSelected;
     }
-    // http://127.0.0.1:8081/wpadminapi/v1/customers/anvi/userdbids/per 
     
     private void searchUsers() {	
     	searchTextField.addValueChangeListener(event -> {
@@ -211,15 +210,25 @@ public class WpAdminGuiUi extends UI {
     		logger.log(Level.INFO, "Request Log :" + strSearch);
     		try {
     			JSONArray userArray = controller.searchUser(strSearch);
-        		logger.log(Level.INFO, "Response Array log  :" + userArray.toString());   
-        		JsonUtil jsonUtil = new JsonUtil();
-        		JsonObject userObj = (JsonObject) jsonUtil.buildJsonObjectFromSearchingUser(userArray);
-        		String userStr = userObj.toString();
-        		JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
-        		// TODO : CREATE A NEW TABLE HERE INSTADE 
-        		treeTableFactory = createTreeTable(userOBJ);
-        		tabUserDbApi.addComponent(treeTableFactory.getTreeTable());
-        		logger.log(Level.INFO, "Response Object log  :" + userOBJ.toString());
+        		if (userArray.isEmpty()){
+        			Notification.show(strSearch + " could not find ");
+        			logger.log(Level.INFO, "Response Array log  :" + userArray.toString());
+        			JSONObject userObjEmpty = controller.getObjectEmpty();
+        			TreeTableFactory  treetablefactory = new TreeTableFactory();			
+        			com.vaadin.ui.Table treetableFac = treetablefactory .createNewTableForSearch(userObjEmpty);
+        			tabUserDbApi.addComponent(treetableFac );       			
+        		}else if ( userArray != null) {
+        			Notification.show(strSearch + " Found! ");
+        			logger.log(Level.INFO, "Response Array log  :" + userArray.toString());
+            		JsonUtil jsonUtil = new JsonUtil();
+            		JsonObject userObj = (JsonObject) jsonUtil.buildJsonObjectFromSearchingUser(userArray);
+            		String userStr = userObj.toString();
+            		JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
+            		TreeTableFactory  treetablefactory = new TreeTableFactory();
+            		com.vaadin.ui.Table treetableFac = treetablefactory .createNewTableForSearch(userOBJ);
+            		tabUserDbApi.addComponent(treetableFac );
+            		logger.log(Level.INFO, "Response Object log  :" + userOBJ.toString());      			
+        		}      		
     		}catch (JsonException e){
     			logger.log(Level.WARNING, "Something went wrong ", e.getStackTrace());			
     		} catch (ParseException e) {
@@ -228,9 +237,8 @@ public class WpAdminGuiUi extends UI {
     		
     	});
     }
-
+   
     private void getDb() {
-    	// TODO : needs to fix to pass a parameter instade pass "anvi"
         if ( customerSelected.equals("anvi")) {
             logger.log(Level.INFO, "Customer Selected: " + customerSelected.toString());
             final JSONArray dbAnvi = controller.getAnviDb();
@@ -272,7 +280,6 @@ public class WpAdminGuiUi extends UI {
 
     private TreeTableFactory createTreeTable(final JSONObject jsonObj) {
         TreeTableFactory treeTableFactory = null;
-        // Populate tree from test data
         try {
             treeTableFactory = new TreeTableFactory();
             treeTableFactory.createTreeTable(jsonObj);

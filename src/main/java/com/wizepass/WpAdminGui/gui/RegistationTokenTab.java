@@ -41,11 +41,10 @@ public class RegistationTokenTab {
 
         table.setSelectable(true);
         table.setImmediate(true);
-
         table.addContainerProperty("Registration_code", String.class, null);
         table.addContainerProperty("Date_registration", String.class,null);
         table.addContainerProperty("Customer_id", String.class, null);
-        table.addContainerProperty("Registation_date", String.class, null);
+        table.addContainerProperty("Registration_date", String.class, null);
         table.addContainerProperty("Description", String.class, null);
         final DataController datacontroller = new DataController();
         try {
@@ -56,8 +55,7 @@ public class RegistationTokenTab {
         } catch (Exception e) {
         	logger.log(Level.WARNING, "Something went wrong with connection" + e.getStackTrace());
         }
-        selectRawInTable(table);  
-        //clickPublish(buttonPublish, valueOfSelect);    
+        selectRawInTable(table);   
         table.setWidth("80%");
         buttonPublish.setWidth("50%");
         buttonDelete.setWidth("50%");
@@ -66,7 +64,7 @@ public class RegistationTokenTab {
         layoutForButton.setWidth("70%");
         layoutTab2.setMargin(true);
         layoutTab2.setSpacing(true);
-        tabsheet.addTab(layoutTab2, "Registation Token");
+        tabsheet.addTab(layoutTab2, "Registration Token");
     }
 
 	private void clickPublish(final Button buttonPublish, final String valueOfSelect) {
