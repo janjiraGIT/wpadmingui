@@ -42,17 +42,14 @@ public class JsonUtil {
 	public JsonObject  buildJsonObject(final String randomId, final String date,final String customer, final String userDb,final List<String> listOfDns,
 												            final String descriptionValueStr, final String timeValueStr,
 												            final String certProfileStr, final String providerStr, final int userSelected ) {
-				//final JsonArrayBuilder jarray = buildJsonArrayFromList(listOfDns);
 				final JsonObject jsonObj = Json.createObjectBuilder()
 														.add(REGISTRATION_CODE, randomId)
 														.add(DATE, date)
 												        .add(DESCRIPTION, descriptionValueStr)
 												        .add(CUSTOMER_ID, customer)
 												        .add(PROVIDER_ID, providerStr)
-												       // .add(END_USER_DNS, jarray)
 												        .add(USER_DB_ID, userDb)
 												        .add(RT_VALID_DURATION, timeValueStr)
-												      //  .add(ENROLMENT_TYPE, "admin")
 												        .add(CERT_PROFILE_ID,certProfileStr)
 												        .build();
 				return jsonObj;	

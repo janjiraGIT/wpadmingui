@@ -27,7 +27,6 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -151,8 +150,7 @@ public class IssueRegistationTokenWindow {
             		final JSONObject jsonObj = new JsonUtil().createJsonObject(data);
             		logger.log(Level.INFO, "Added new registation in database", jsonObj);
             	
-            		final Notification notification = new Notification(
-            					
+            		final Notification notification = new Notification(			
             						 "CustomerId : " + mapSelected.get("CustomerSelected") + "\n\n"
                                      + "UserDbId :   " +  mapSelected.get("DbSelected") + "\n\n"
                                      + "ListOfEndUserId :   " + listOfDns + "\n\n"
