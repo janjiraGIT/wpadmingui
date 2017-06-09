@@ -226,6 +226,7 @@ public class WpAdminGuiUi extends UI {
             		JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
             		TreeTableFactory  treetablefactory = new TreeTableFactory();
             		com.vaadin.ui.Table treetableFac = treetablefactory .createNewTableForSearch(userOBJ);
+                	//TODO : remove double table 
             		tabUserDbApi.addComponent(treetableFac );
             		logger.log(Level.INFO, "Response Object log  :" + userOBJ.toString());      			
         		}      		

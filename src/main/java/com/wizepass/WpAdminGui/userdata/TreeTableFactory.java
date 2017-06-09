@@ -25,9 +25,6 @@ public class TreeTableFactory {
     private static final String RDN_VALUE = "rdn_value";
     private static final String CHILDREN = "children";
     private JSONObject samn;
-//	String aname = null;
-//	String gname = null;
-//	String sname = null;
 
     private TreeTable treeTable = new TreeTable();
     Table searchTable = new Table();
@@ -41,23 +38,25 @@ public class TreeTableFactory {
     private final Logger logger = Logger.getLogger(TreeTableFactory.class.getName());
 
     public Table createNewTableForSearch(JSONObject userObj){
-
+    	String aname = null;
+    	String gname = null;
+    	String sname = null;
+//    	searchTable.removeItem(sname);
+//    	searchTable.removeItem(gname);
+//    	searchTable.removeItem(sname);
     	searchTable.setSelectable(true);
     	searchTable.addContainerProperty("account name", String.class, null);
     	searchTable.addContainerProperty("given name", String.class, null);
     	searchTable.addContainerProperty("sur name", String.class, null);
-    	final String aname =  (String) userObj.get("account_name");
-    	final String gname =  (String) userObj.get("given_name");
-    	final String sname =  (String) userObj.get("sur_name");
+    	aname =  (String) userObj.get("account_name");
+    	gname =  (String) userObj.get("given_name");
+    	sname =  (String) userObj.get("sur_name");
     	searchTable.setImmediate(true);
-    	// TODO : can search user and create new table but can not show data on table?
-    	searchTable.addItem(new Object[]{aname,gname,sname, 1});    	
-    	//searchTable.addItem(new Object[] {"one","two","tree"},1);
-    	searchTable.setWidth("80%");
-		return searchTable;
-    	
-    	
+    	searchTable.addItem(new Object[]{aname,gname,sname},1);   
+    	searchTable.setWidth("100%");
+		return searchTable; 	   	
     }
+
     /**
      * Creates a TreeTable of user database data (LDAP).
      */
