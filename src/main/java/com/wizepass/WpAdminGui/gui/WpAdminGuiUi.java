@@ -23,6 +23,7 @@ import com.google.gson.JsonParser;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Item;
+import com.vaadin.event.ItemClickEvent;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
@@ -84,6 +85,8 @@ public class WpAdminGuiUi extends UI {
     private String strSearch;
     private TreeTableFactory treeTableFactory;
     JSONObject userObj = null;
+    com.vaadin.ui.Table table = null;
+
 
     @Override
     protected void init(final VaadinRequest vaadinRequest) {
@@ -199,43 +202,86 @@ public class WpAdminGuiUi extends UI {
         });
         return mapSelected;
     }
-    
+    /**
+     * The search user method.
+     * 1. not in put data in search textbox but click ok, it will remove treetable and crate new table and generate null to table.
+     * 2. no data in database, it will remove old table and generate null to table.
+     * 3. find data , it will remove old table and generate data to table. 
+     * 
+     */
     private void searchUsers() {	
     	searchTextField.addValueChangeListener(event -> {
     		strSearch = (String) event.getProperty().getValue();
     		Notification.show(strSearch);	
     	});
     	searchButtonOk.addClickListener(event -> {
+    		// // delete old tree table first
     		tabUserDbApi.removeComponent(treeTableFactory.getTreeTable());
+    		// get empty JSON Obj
+    		JSONObject userObjEmpty = controller.getObjectEmpty();		
+    		// crate new table with null JSON Obj
+			table = treeTableFactory.createNewTableForSearch(userObjEmpty);
+			// add table
+			tabUserDbApi.addComponent(table);
     		logger.log(Level.INFO, "Request Log :" + strSearch);
     		try {
+    			// send a parameter string to search in Rest api
     			JSONArray userArray = controller.searchUser(strSearch);
+    			// no data match
         		if (userArray.isEmpty()){
+        			// delete old table
+        			tabUserDbApi.removeComponent(table);  
         			Notification.show(strSearch + " could not find ");
-        			logger.log(Level.INFO, "Response Array log  :" + userArray.toString());
-        			JSONObject userObjEmpty = controller.getObjectEmpty();
-        			TreeTableFactory  treetablefactory = new TreeTableFactory();			
-        			com.vaadin.ui.Table treetableFac = treetablefactory .createNewTableForSearch(userObjEmpty);
-        			tabUserDbApi.addComponent(treetableFac );       			
+        			logger.log(Level.INFO, "Response Array log  :" + userArray.toString());   
+        			// get empty JSON Obj
+        			userObjEmpty = controller.getObjectEmpty();
+        			// crate a new table with null JSON Obj
+        			table = treeTableFactory .createNewTableForSearch(userObjEmpty);
+        			// add new table 
+        			tabUserDbApi.addComponent(table);       
+        		// find user 
         		}else if ( userArray != null) {
+        			// delete old table
+        			tabUserDbApi.removeComponent(table);  
         			Notification.show(strSearch + " Found! ");
         			logger.log(Level.INFO, "Response Array log  :" + userArray.toString());
             		JsonUtil jsonUtil = new JsonUtil();
+            		// send array data to method for build JSON obj
             		JsonObject userObj = (JsonObject) jsonUtil.buildJsonObjectFromSearchingUser(userArray);
             		String userStr = userObj.toString();
-            		JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
-            		TreeTableFactory  treetablefactory = new TreeTableFactory();
-            		com.vaadin.ui.Table treetableFac = treetablefactory .createNewTableForSearch(userOBJ);
-                	//TODO : remove double table 
-            		tabUserDbApi.addComponent(treetableFac );
-            		logger.log(Level.INFO, "Response Object log  :" + userOBJ.toString());      			
+            		try {
+            			// parser string to obj
+            			JSONObject userOBJ = (JSONObject) new JSONParser().parse(userStr);  
+                		treeTableFactory = new TreeTableFactory();
+                		// crate new table with new json obj
+                		table = treeTableFactory .createNewTableForSearch(userOBJ);
+                		// add table
+                		tabUserDbApi.addComponent(table );     			
+            		}catch (Exception e) {
+            			logger.log(Level.WARNING, "Something went wrong with connection" + e.getStackTrace());
+            		}          		
+            		table.addItemClickListener(new ItemClickEvent.ItemClickListener() {
+            		Object currentItemId = null;	
+            		Object valueOfAname= null;
+            		Object valueOfGname= null;
+            		Object valueOfSname= null;
+						@Override
+						public void itemClick(ItemClickEvent event) {
+						    
+						    valueOfAname = table.getItem(currentItemId).getItemProperty("account_name").getValue().toString();
+						    valueOfGname = table.getItem(currentItemId).getItemProperty("account_name").getValue().toString();
+						    valueOfSname = table.getItem(currentItemId).getItemProperty("account_name").getValue().toString();
+							if (valueOfAname != null){
+								logger.log(Level.INFO, "Aname  :" + valueOfAname.toString());  
+								buttonCreateRegToken.setEnabled(true);
+							}		
+						}
+					});         		
+            		logger.log(Level.INFO, "Response Object log  :" + userObj.toString());      			
         		}      		
     		}catch (JsonException e){
     			logger.log(Level.WARNING, "Something went wrong ", e.getStackTrace());			
-    		} catch (ParseException e) {
-    			logger.log(Level.WARNING, "ParserException ", e.getStackTrace());	
-			}
-    		
+    		}   		
     	});
     }
    

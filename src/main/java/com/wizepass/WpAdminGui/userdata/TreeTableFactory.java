@@ -41,9 +41,6 @@ public class TreeTableFactory {
     	String aname = null;
     	String gname = null;
     	String sname = null;
-//    	searchTable.removeItem(sname);
-//    	searchTable.removeItem(gname);
-//    	searchTable.removeItem(sname);
     	searchTable.setSelectable(true);
     	searchTable.addContainerProperty("account name", String.class, null);
     	searchTable.addContainerProperty("given name", String.class, null);

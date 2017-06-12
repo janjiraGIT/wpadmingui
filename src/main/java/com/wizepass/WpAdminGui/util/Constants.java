@@ -13,6 +13,7 @@ public class Constants {
     public static final String REG_TOKEN = LOCAL_JSON + "reg_token.json";
     public static final String USER_MG = LOCAL_JSON + "users.json";
     public static final String OBJ_EMPTY = LOCAL_JSON + "EmptyObj.json";
+    public static final String ARRAY_EMPTY=LOCAL_JSON + "emptySearch.json";
     
     public static  String URL_ADDRESS = "http://localhost:8081";
     public static String WP_REST = "/WpRest/users/";
